@@ -1,4 +1,7 @@
 import Head from 'next/head'
+import Image from 'next/image'
+import { FaPhone, FaMapMarkerAlt, FaEnvelope } from "react-icons/fa"
+
 
 const contato = () => {
   return (
@@ -9,8 +12,48 @@ const contato = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
+
       <main>
-        <h1>Contato</h1>
+        <section className="contact">
+          <div className="row">
+            <div className="image">
+              <Image
+                width={300}
+                height={600}
+                src='contato.svg'
+
+              />
+            </div>
+            <form action="" method="post">
+              <h3>Entrar em contato</h3>
+              <input type="text" placeholder="Digite seu nome" name="name" required maxlength="50" className="box" />
+              <input type="email" placeholder="Digite seu email" name="email" required maxlength="50" className="box" />
+              <input type="number" placeholder="Digite seu número de telefone" name="tel" required maxlength="50"
+                className="box" />
+              <textarea name="msg" className="box" placeholder="Escreva sua mensagem" required maxlength="1000" cols="30"
+                rows="10"></textarea>
+              <input type="submit" value="enviar mensagem" className="btn btn-dark-blue" name="submit" />
+            </form>
+          </div>
+          <div className="box-container">
+            <div className="box">
+              <FaPhone />
+              <h3>Número de Telefone</h3>
+              <a href="tel:123456789">+55 12345-6789</a>
+            </div>
+            <div className="box">
+              <FaEnvelope />
+              <h3>Endereço de e-mail</h3>
+              <a href="mailto:squad42@gmail.com">squad42@gmail.com</a>
+            </div>
+            <div className="box">
+              <FaMapMarkerAlt />
+              <h3>Endereço</h3>
+              <a href="#">Rua do Sucesso, nº 1.234 - Brasil</a>
+            </div>
+          </div>
+        </section>
       </main>
     </>
   )

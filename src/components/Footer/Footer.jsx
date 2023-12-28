@@ -2,7 +2,9 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <div>Footer</div>
+    <footer>
+      &copy; 2023. Desenvolvido por <span>Squad 42</span> | Todos os direitos reservados!
+    </footer>
   )
 }
 

@@ -1,3 +1,5 @@
+import { CardSobre } from '@/components'
+import { sobreCards } from '@/constants/data'
 import Head from 'next/head'
 
 const sobre = () => {
@@ -10,7 +12,20 @@ const sobre = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <h1>Sobre</h1>
+        <h1 className="heading">Quem somos</h1>
+        <div className="container">
+          <div className="row">
+            {sobreCards.map(({ img, titulo, texto }, i) => (
+              <CardSobre
+                key={i}
+                img={img}
+                titulo={titulo}
+                texto={texto}
+              />
+            ))}
+
+          </div>
+        </div>
       </main>
     </>
   )
