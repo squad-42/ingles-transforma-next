@@ -1,3 +1,5 @@
+import { CardCurso } from '@/components'
+import { listaCursos } from '@/constants/data'
 import Head from 'next/head'
 
 const cursos = () => {
@@ -11,7 +13,18 @@ const cursos = () => {
       </Head>
 
       <main>
-        <h1>Cursos</h1>
+        <section className="container" id="courses">
+          <h2 className="heading">Nossos Cursos</h2>
+
+          <div className="box-container">
+            {listaCursos.map((curso, i) => (
+              <CardCurso
+                key={i}
+                curso={curso}
+              />
+            ))}
+          </div>
+        </section>
       </main>
     </>
   )

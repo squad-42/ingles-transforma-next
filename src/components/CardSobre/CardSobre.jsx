@@ -1,7 +1,7 @@
 import React from 'react'
 
-const CardSobre = ({ img, titulo, texto }) => {
-
+const CardSobre = ({ card }) => {
+  const { img, titulo, texto } = card
   return (
     <div className="col-md-4">
       <div className="main">

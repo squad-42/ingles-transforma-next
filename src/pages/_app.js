@@ -4,6 +4,8 @@ import 'bootstrap/dist/css/bootstrap.css'
 
 import '@/styles/globals.css'
 import '@/styles/index.css'
+import '@/styles/cursos.css'
+import '@/styles/professores.css'
 import '@/styles/contato.css'
 import '@/styles/sobre.css'
 

@@ -78,6 +78,63 @@ export const topicos = [
   }
 ]
 
+export const listaCursos = [
+  {
+    cod: "1",
+    prof: "Luna Lovegood",
+    profPic: 2,
+    data: "05-05-2023",
+    numDeVid: 13,
+    thumb: 3,
+    nome: "Preparação - Exames de Proficiência"
+  },
+  {
+    cod: "2",
+    prof: "Ron Weasley",
+    profPic: 3,
+    data: "11-05-2023",
+    numDeVid: 13,
+    thumb: 2,
+    nome: "Inglês para Negócios"
+  },
+  {
+    cod: "3",
+    prof: "Albus Dumbledore",
+    profPic: 9,
+    data: "21-07-2023",
+    numDeVid: 10,
+    thumb: 1,
+    nome: "Inglês Geral"
+  },
+  {
+    cod: "4",
+    prof: "Hermione Granger",
+    profPic: 5,
+    data: "07-07-2023",
+    numDeVid: 25,
+    thumb: 4,
+    nome: "Inglês Acadêmico"
+  },
+  {
+    cod: "5",
+    prof: "Draco Malfoy",
+    profPic: 6,
+    data: "27-06-2023",
+    numDeVid: 16,
+    thumb: 5,
+    nome: "Inglês para viagens"
+  },
+  {
+    cod: "6",
+    prof: "Minerva McGonagall",
+    profPic: 7,
+    data: "09-06-2023",
+    numDeVid: 12,
+    thumb: 6,
+    nome: "Inglês Técnico para área de TI"
+  },
+]
+
 
 export const sobreCards = [
   {

@@ -15,12 +15,10 @@ const sobre = () => {
         <h1 className="heading">Quem somos</h1>
         <div className="container">
           <div className="row">
-            {sobreCards.map(({ img, titulo, texto }, i) => (
+            {sobreCards.map((card, i) => (
               <CardSobre
                 key={i}
-                img={img}
-                titulo={titulo}
-                texto={texto}
+                card={card}
               />
             ))}
 

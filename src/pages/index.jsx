@@ -1,5 +1,7 @@
-import { categorias, topicos } from '@/constants/data'
+import { CardCurso } from '@/components'
+import { categorias, listaCursos, topicos } from '@/constants/data'
 import Head from 'next/head'
+import Link from 'next/link'
 
 export default function Home() {
   return (
@@ -12,67 +14,75 @@ export default function Home() {
       </Head>
 
       <main>
-        <div class="container">
-          <div class="hero text-center">
-            <h1 class="hero-title hidden">Bem-vindx!</h1>
+        <div className="container">
+          <div className="hero text-center">
+            <h1 className="hero-title hidden">Bem-vindx!</h1>
           </div>
-          <div class="gif">
+          <div className="gif">
             <img src="online.gif" alt="GIF Animado" width="90%" />
           </div>
         </div>
 
-        <section class="container" id="quick-options">
-          <h2 class="heading">Opções Rápidas</h2>
+        <section className="container" id="quick-options">
+          <h2 className="heading">Opções Rápidas</h2>
 
-          <div class="box-container">
-            <div class="box">
-              <h3 class="title">Curtidas e Comentários</h3>
-              <p class="likes">Total de curtidas : <span>25</span></p>
-              <a href="#" class="btn btn-dark-blue">ver curtidas</a>
-              <p class="likes">Total comentários : <span>12</span></p>
-              <a href="#" class="btn btn-dark-blue">ver comentários</a>
-              <p class="likes">Salvar playlists: <span>4</span></p>
-              <a href="#" class="btn btn-dark-blue">ver playlists</a>
+          <div className="box-container">
+            <div className="box">
+              <h3 className="title">Curtidas e Comentários</h3>
+              <p className="likes">Total de curtidas : <span>25</span></p>
+              <a href="#" className="btn btn-dark-blue">ver curtidas</a>
+              <p className="likes">Total comentários : <span>12</span></p>
+              <a href="#" className="btn btn-dark-blue">ver comentários</a>
+              <p className="likes">Salvar playlists: <span>4</span></p>
+              <a href="#" className="btn btn-dark-blue">ver playlists</a>
             </div>
 
-            <div class="cards-options">
+            <div className="cards-options">
               <div className="box">
-                <h3 class="title">Categorias em alta</h3>
+                <h3 className="title">Categorias em alta</h3>
                 <div className="flex">
-                  {categorias.map(({ nome }) => (
-                    <a href="#"><span>{nome}</span></a>
+                  {categorias.map(({ nome }, i) => (
+                    <a href="#" key={i}><span>{nome}</span></a>
                   ))}
                 </div>
               </div>
             </div>
 
-            <div class="cards-options">
+            <div className="cards-options">
               <div className="box">
-                <h3 class="title">Tópicos Populares</h3>
+                <h3 className="title">Tópicos Populares</h3>
                 <div className="flex">
-                  {topicos.map(({ nome }) => (
-                    <a href="#"><span>{nome}</span></a>
+                  {topicos.map(({ nome }, i) => (
+                    <a href="#" key={i}><span>{nome}</span></a>
                   ))}
                 </div>
               </div>
             </div>
 
-            <div class="box tutor">
-              <h3 class="title">Torne-se um tutor</h3>
+            <div className="box tutor">
+              <h3 className="title">Torne-se um tutor</h3>
               <p>Você é apaixonado pelo inglês e deseja fazer a diferença
                 na vida de outras pessoas? Torne-se um tutor e ajude outros na comunicação em inglês.</p>
-              <a href="teachers.html" class="btn btn-dark-blue">Iniciar</a>
+              <a href="teachers.html" className="btn btn-dark-blue">Iniciar</a>
             </div>
           </div>
         </section>
 
-        <section class="container" id="courses">
-          <h2 class="heading">Nossos Cursos</h2>
+        <section className="container" id="courses">
+          <h2 className="heading">Nossos Cursos</h2>
 
-          <div class="box-container">
+          <div className="box-container">
+
+            {listaCursos.map((curso, i) => (
+              i < 4 &&
+              <CardCurso
+                key={i}
+                curso={curso}
+              />
+            ))}
           </div>
-          <div class="mt-5 d-flex justify-content-center ">
-            <a href="../cursos/cursos.html" class="btn btn-dark-blue">Ver mais</a>
+          <div className="mt-5 d-flex justify-content-center ">
+            <Link href={'cursos'} className="btn btn-dark-blue">Ver mais</Link>
           </div>
         </section>
       </main>
