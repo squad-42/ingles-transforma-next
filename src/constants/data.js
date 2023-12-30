@@ -1,4 +1,22 @@
-import { FaChalkboardTeacher, FaHome, FaGraduationCap, FaQuestion, FaHeadset, } from "react-icons/fa";
+import {
+  FaChalkboardTeacher,
+  FaHome,
+  FaGraduationCap,
+  FaQuestion,
+  FaHeadset,
+  FaCode,
+  FaPen,
+  FaChartLine,
+  FaMusic,
+  FaChartBar,
+  FaPencilAlt,
+  FaUser,
+  FaUsers,
+  FaFile,
+  FaChild
+} from "react-icons/fa";
+
+import { HiPencilSquare } from "react-icons/hi2";
 
 export const sidebarOptions = [
   {
@@ -30,50 +48,50 @@ export const sidebarOptions = [
 
 export const categorias = [
   {
-    icon: "code",
+    icone: FaCode,
     nome: "gramática"
   },
   {
-    icon: "chart-simple",
+    icone: FaChartBar,
     nome: "sintaxe"
   },
   {
-    icon: "pen",
+    icone: FaPen,
     nome: "vocabulário"
   },
   {
-    icon: "chart-line",
+    icone: FaChartLine,
     nome: "compreensão"
   },
   {
-    icon: "music",
+    icone: FaMusic,
     nome: "expressão oral"
   }
 ]
 
 export const topicos = [
   {
-    icon: "pencil",
+    icone: FaPen,
     nome: "verb tenses"
   },
   {
-    icon: "pencil-square",
+    icone: HiPencilSquare,
     nome: "verb moodes"
   },
   {
-    icon: "user",
+    icone: FaUser,
     nome: "pronouns"
   },
   {
-    icon: "users",
+    icone: FaUsers,
     nome: "conjugation"
   },
   {
-    icon: "file-text",
+    icone: FaFile,
     nome: "articles"
   },
   {
-    icon: "child",
+    icone: FaChild,
     nome: "adjectives"
   }
 ]

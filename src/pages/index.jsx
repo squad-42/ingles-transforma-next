@@ -41,8 +41,11 @@ export default function Home() {
               <div className="box">
                 <h3 className="title">Categorias em alta</h3>
                 <div className="flex">
-                  {categorias.map(({ nome }, i) => (
-                    <a href="#" key={i}><span>{nome}</span></a>
+                  {categorias.map(({ nome, icone }, i) => (
+                    <a href="#" key={i}>
+                      {icone()}
+                      <span>{nome}</span>
+                    </a>
                   ))}
                 </div>
               </div>
@@ -52,8 +55,11 @@ export default function Home() {
               <div className="box">
                 <h3 className="title">Tópicos Populares</h3>
                 <div className="flex">
-                  {topicos.map(({ nome }, i) => (
-                    <a href="#" key={i}><span>{nome}</span></a>
+                  {topicos.map(({ nome, icone }, i) => (
+                    <a href="#" key={i}>
+                      {icone()}
+                      <span>{nome}</span>
+                    </a>
                   ))}
                 </div>
               </div>

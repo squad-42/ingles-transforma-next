@@ -43,9 +43,18 @@
 #quick-options .box-container .box a {
   color: var(--white);
 }
+#quick-options .box-container .box a svg {
+  width: 16px;
+  height: 16px;
+  margin-bottom: 0;
+  margin-right: 5px;
+}
 #quick-options .box-container .box a:hover {
   color: var(--dark-blue);
   text-decoration: none !important;
+}
+#quick-options .box-container .box a:hover svg {
+  color: var(--white);
 }
 #quick-options .box-container .tutor {
   text-align: center;

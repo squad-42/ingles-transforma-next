@@ -10,7 +10,16 @@ const login = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <h1>Login</h1>
+        <section className="form-container">
+          <form action="../home/index.html" id="form">
+            <h3>Login</h3>
+            <label>Email</label>
+            <input type="email" placeholder="hp@email.com" maxlength="100" className="box" id="inpEmail" required />
+            <label>Senha</label>
+            <input type="password" placeholder="Digite sua nova senha" maxlength="50" className="box" id="inpPassword" required />
+            <button type="submit" className="btn btn-dark-blue" id="btnLogin">Login</button>
+          </form>
+        </section>
       </main>
     </>
   )

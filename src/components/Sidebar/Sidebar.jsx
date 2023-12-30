@@ -1,8 +1,10 @@
 import { sidebarOptions } from '@/constants/data'
-import React from 'react'
+import React, { useState } from 'react'
 import Link from 'next/link'
+import { MdLogout } from "react-icons/md";
 
 const Sidebar = () => {
+  const [usuario, setUsuario] = useState(1)
   return (
     <div className="sidebar">
       <div className="offcanvas offcanvas-start" tabIndex="-1" id="sidebar">
@@ -18,6 +20,16 @@ const Sidebar = () => {
               <span>{texto}</span>
             </Link>
           ))}
+          {
+            usuario != null &&
+            <Link
+              href={'/'}
+            >
+              <i><MdLogout /></i>
+              <span>Logout</span>
+            </Link>
+          }
+
         </nav>
       </div >
     </div>
