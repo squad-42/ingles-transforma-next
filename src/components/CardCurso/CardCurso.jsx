@@ -16,7 +16,7 @@ const CardCurso = ({ curso }) => {
         <span>{numDeVid} videos</span>
       </div>
       <h3 className="title">{nome}</h3>
-      <a href="../aulas/aulas.html" className="btn btn-dark-blue" onclick="setCurso(${cod})">ver playslist</a>
+      <a href="/curso" className="btn btn-dark-blue" onclick="setCurso(${cod})">ver playslist</a>
     </div>
   )
 }
