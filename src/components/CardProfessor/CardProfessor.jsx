@@ -14,7 +14,7 @@ const CardProfessor = ({ professor }) => {
       <div class="stats">
         <p>Playlist: <span>1</span></p>
         <p>Nº de vídeos: <span>{numDeVid}</span></p>
-        <a href="../professor/professor.html" class="btn btn-dark-blue" onclick="setCurso(${cod})">Ver perfil</a>
+        <a href="/professor" class="btn btn-dark-blue" onclick="setCurso(${cod})">Ver perfil</a>
       </div>
     </div>
   )
