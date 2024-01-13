@@ -1,5 +1,8 @@
 package squad42.inglesTransforma42.repository;
 
-public interface CursosRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+import squad42.inglesTransforma42.model.Curso;
+
+public interface CursosRepository extends JpaRepository<Curso, Integer> {
 
 }

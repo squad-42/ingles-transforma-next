@@ -1,18 +1,12 @@
 package squad42.inglesTransforma42.model;
 
-
 import java.util.Date;
 
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
 
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name= "Professores")
@@ -33,15 +27,15 @@ public class Professor {
 	private String user_role;
 	@Column(nullable=false)
 	@DateTimeFormat(iso = ISO.DATE, pattern = "yyyy-MM-dd")
-	private Date data_de_nascimento;
+	private Date data_nascimento;
 	@Column(nullable=false)
 	private String sexo;
 	
-	@Column(columnDefinition = "longblob")
-	private byte[] imagem;
+	@Column(nullable = false)
+	private String imagem;
 	
 	public Professor(int id, String nome, String email, String senha, String cpf, String user_role,
-			Date data_de_nascimento, String sexo) {
+			Date data_nascimento, String sexo, String imagem) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -49,8 +43,9 @@ public class Professor {
 		this.senha = senha;
 		this.cpf = cpf;
 		this.user_role = user_role;
-		this.data_de_nascimento = data_de_nascimento;
+		this.data_nascimento = data_nascimento;
 		this.sexo = sexo;
+		this.imagem = imagem;
 	}
 	public Professor() {
 		super();
@@ -91,11 +86,11 @@ public class Professor {
 	public void setUser_role(String user_role) {
 		this.user_role = user_role;
 	}
-	public Date getData_de_nascimento() {
-		return data_de_nascimento;
+	public Date getData_nascimento() {
+		return data_nascimento;
 	}
-	public void setData_de_nascimento(Date data_de_nascimento) {
-		this.data_de_nascimento = data_de_nascimento;
+	public void setData_nascimento(Date data_nascimento) {
+		this.data_nascimento = data_nascimento;
 	}
 	public String getSexo() {
 		return sexo;
@@ -103,10 +98,10 @@ public class Professor {
 	public void setSexo(String sexo) {
 		this.sexo = sexo;
 	}
-	public byte[] getImagem() {
+	public String getImagem() {
 		return imagem;
 	}
-	public void setImagem(byte[] imagem) {
+	public void setImagem(String imagem) {
 		this.imagem = imagem;
 	}
 	
