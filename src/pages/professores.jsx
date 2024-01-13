@@ -1,3 +1,5 @@
+import React from 'react';
+import Link from 'next/link';
 import { CardProfessor } from '@/components'
 import { listaCursos } from '@/constants/data'
 import Head from 'next/head'
@@ -12,21 +14,20 @@ const professores = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <section class="teachers">
-          <h1 class="heading">Professores</h1>
+        <section className="teachers">
+          <h1 className="heading">Professores</h1>
 
-          <div class="box-container">
-            <div class="box offer">
-              <h3 class="title">Se torne um tutor</h3>
+          <div className="box-container">
+            <div className="box offer">
+              <h3 className="title">Se torne um tutor</h3>
               <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laudantium, corporis?</p>
-              <a href="" class="btn btn-dark-blue">Começar</a>
+              <a href="" className="btn btn-dark-blue">Começar</a>
             </div>
 
             {listaCursos.map((professor, i) => (
-              <CardProfessor
-                key={i}
-                professor={professor}
-              />
+              <Link href={`/professor/${professor.cod}`} key={i}>
+                <CardProfessor professor={professor} />
+              </Link>
             ))}
 
           </div>

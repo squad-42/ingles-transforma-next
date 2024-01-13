@@ -1,20 +1,23 @@
-import React from 'react'
+import React from 'react';
+import Link from 'next/link';
 
 const CardProfessor = ({ professor }) => {
   const { prof, profPic, numDeVid } = professor
   return (
-    <div class="box">
-      <div class="tutor">
+    <div className="box">
+      <div className="tutor">
         <img src={`pic-${profPic}.jpg`} alt="" />
         <div className="info">
-          <h3 class="title">{prof}</h3>
+          <h3 className="title">{prof}</h3>
           <span>Professor</span>
         </div>
       </div>
-      <div class="stats">
+      <div className="stats">
         <p>Playlist: <span>1</span></p>
         <p>Nº de vídeos: <span>{numDeVid}</span></p>
-        <a href="/professor" class="btn btn-dark-blue" onclick="setCurso(${cod})">Ver perfil</a>
+        <Link href={`/professor/${professor.cod}`}>
+          <span className="btn btn-dark-blue">Ver perfil</span>
+        </Link>
       </div>
     </div>
   )
