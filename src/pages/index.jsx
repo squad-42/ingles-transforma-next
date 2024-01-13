@@ -10,6 +10,8 @@ export default function Home() {
   useEffect(() => {
     listarCursos()
   }, [])
+
+
   return (
     <>
       <Head>

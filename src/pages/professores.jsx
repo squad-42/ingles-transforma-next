@@ -1,10 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Link from 'next/link';
 import { CardProfessor } from '@/components'
-import { listaCursos } from '@/constants/data'
+//import { listaCursos } from '@/constants/data'
 import Head from 'next/head'
+import { useCurso, useProfessores } from '@/hooks';
 
 const professores = () => {
+  const { professores, listarProfessores } = useProfessores()
+  const { listarCursos } = useCurso()
+
+  useEffect(() => {
+    listarCursos()
+    listarProfessores()
+  }, [])
   return (
     <>
       <Head>
@@ -24,7 +32,7 @@ const professores = () => {
               <a href="" className="btn btn-dark-blue">Começar</a>
             </div>
 
-            {listaCursos.map((professor, i) => (
+            {professores.map((professor, i) => (
               <Link href={`/professor/${professor.cod}`} key={i}>
                 <CardProfessor professor={professor} />
               </Link>

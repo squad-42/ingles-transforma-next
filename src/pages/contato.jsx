@@ -27,11 +27,11 @@ const contato = () => {
             </div>
             <form action="" method="post">
               <h3>Entrar em contato</h3>
-              <input type="text" placeholder="Digite seu nome" name="name" required maxlength="50" className="box" />
-              <input type="email" placeholder="Digite seu email" name="email" required maxlength="50" className="box" />
-              <input type="number" placeholder="Digite seu número de telefone" name="tel" required maxlength="50"
+              <input type="text" placeholder="Digite seu nome" name="name" required maxLength="50" className="box" />
+              <input type="email" placeholder="Digite seu email" name="email" required maxLength="50" className="box" />
+              <input type="number" placeholder="Digite seu número de telefone" name="tel" required maxLength="50"
                 className="box" />
-              <textarea name="msg" className="box" placeholder="Escreva sua mensagem" required maxlength="1000" cols="30"
+              <textarea name="msg" className="box" placeholder="Escreva sua mensagem" required maxLength="1000" cols="30"
                 rows="10"></textarea>
               <input type="submit" value="enviar mensagem" className="btn btn-dark-blue" name="submit" />
             </form>

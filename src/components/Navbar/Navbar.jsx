@@ -17,7 +17,7 @@ const Navbar = () => {
         </Link>
 
         <form action="" method="post" className="d-flex align-content-center search-form">
-          <input type="text" name="search_box" placeholder="Buscar cursos" maxlength="100" required />
+          <input type="text" name="search_box" placeholder="Buscar cursos" maxLength="100" required />
           <button type="submit">
             <FaSearch />
           </button>

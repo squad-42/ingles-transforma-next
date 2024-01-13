@@ -5,7 +5,7 @@ const useCurso = () => {
 
   const URL = "http://localhost:8080/cursos"
 
-  const [curso, setCurso] = useState({ nome: "", qtd_aulas: 0, data_publicacao: "", data_fechamento: "", imagem: "", professor: { "id": 1 } })
+  const [curso, setCurso] = useState({})
   const [cursos, setCursos] = useState([])
 
   const handleCursoInputChange = e => {
@@ -36,13 +36,22 @@ const useCurso = () => {
       .catch(err => console.log(err))
   }
 
+  const buscarCurso = (prof_id) => {
+    const result = cursos.filter(curso => curso.professor.id === prof_id)
+    console.log(prof_id)
+    console.log(cursos)
+    setCurso(curso)
+  }
+
   return {
     cursos,
+    setCurso,
     handleCursoInputChange,
     criarCurso,
     listarCursos,
     editarCurso,
-    deletarCurso
+    deletarCurso,
+    buscarCurso
   }
 }
 

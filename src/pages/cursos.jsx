@@ -1,5 +1,4 @@
 import { CardCurso } from '@/components'
-import { listaCursos } from '@/constants/data'
 import { useCurso } from '@/hooks'
 import Head from 'next/head'
 import { useEffect } from 'react'

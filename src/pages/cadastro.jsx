@@ -14,19 +14,19 @@ const cadastro = () => {
           <form action="../home/index.html" id="form">
             <h3>Cadastrar</h3>
             <label>Nome <span>*</span></label>
-            <input type="text" placeholder="Harry Potter" maxlength="100" class="box" id="name" required />
+            <input type="text" placeholder="Harry Potter" maxLength="100" class="box" id="name" required />
             <label>Email <span>*</span></label>
-            <input type="email" placeholder="hp@email.com" maxlength="100" class="box" id="email" required />
+            <input type="email" placeholder="hp@email.com" maxLength="100" class="box" id="email" required />
             <label>Tipo <span>*</span></label>
             <select class="box" id="type" required>
               <option value="aluno">Aluno(a)</option>
               <option value="professor">Professor(a)</option>
             </select>
             <label>Senha <span>*</span></label>
-            <input type="password" minlength="6" placeholder="Digite sua nova senha" maxlength="50" class="box"
+            <input type="password" minlength="6" placeholder="Digite sua nova senha" maxLength="50" class="box"
               id="password" required />
             <label>Confirmar senha <span>*</span></label>
-            <input type="password" minlength="6" placeholder="Confirme sua senha" maxlength="50" class="box"
+            <input type="password" minlength="6" placeholder="Confirme sua senha" maxLength="50" class="box"
               id="confPassword" required />
             <button type="submit" class="btn btn-dark-blue" id="btnSignUp">Confirmar</button>
           </form>
