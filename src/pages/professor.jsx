@@ -1,12 +1,27 @@
 import React from 'react';
-import { CardProfessor } from '@/components';
-import { CardCurso } from '@/components';
+import { CardProfessor, CardCurso } from '@/components';
+import * as data from '../constants/data';
 
 const professor = () => {
-  return (
-    <div>
-         <h1 class="heading">Perfil</h1>
-    </div>
+    const professorData = data.listaCursos;
+  const cursoData = data.listaCursos;
+    return (
+    <>
+    <section>
+        <div>
+            <h1 className="heading">Perfil</h1>
+        </div>
+    </section>
+        <div className="details">
+        <CardProfessor professor={professorData} />
+        </div>
+    <section className="container" id="courses">
+            <h2 className="heading">Cursos</h2>
+        <div className="box-container">
+        <CardCurso curso={cursoData} />
+        </div>
+    </section>
+    </>
   )
 }
 
