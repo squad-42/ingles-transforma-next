@@ -1,8 +1,14 @@
 import { CardCurso } from '@/components'
 import { listaCursos } from '@/constants/data'
+import { useCurso } from '@/hooks'
 import Head from 'next/head'
+import { useEffect } from 'react'
 
 const cursos = () => {
+  const { cursos, listarCursos } = useCurso()
+  useEffect(() => {
+    listarCursos()
+  }, [])
   return (
     <>
       <Head>
@@ -17,7 +23,7 @@ const cursos = () => {
           <h2 className="heading">Nossos Cursos</h2>
 
           <div className="box-container">
-            {listaCursos.map((curso, i) => (
+            {cursos.map((curso, i) => (
               <CardCurso
                 key={i}
                 curso={curso}

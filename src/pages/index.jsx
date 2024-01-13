@@ -1,9 +1,15 @@
 import { CardCurso } from '@/components'
 import { categorias, listaCursos, topicos } from '@/constants/data'
+import { useCurso } from '@/hooks'
 import Head from 'next/head'
 import Link from 'next/link'
+import { useEffect } from 'react'
 
 export default function Home() {
+  const { cursos, listarCursos } = useCurso()
+  useEffect(() => {
+    listarCursos()
+  }, [])
   return (
     <>
       <Head>
@@ -79,7 +85,7 @@ export default function Home() {
 
           <div className="box-container">
 
-            {listaCursos.map((curso, i) => (
+            {cursos.map((curso, i) => (
               i < 4 &&
               <CardCurso
                 key={i}
