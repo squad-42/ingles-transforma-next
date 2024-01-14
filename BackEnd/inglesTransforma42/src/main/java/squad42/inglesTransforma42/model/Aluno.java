@@ -39,10 +39,9 @@ public class Aluno {
     @Column(nullable=false)
     private String sexo;
 
-    @Column(columnDefinition = "longblob")
-    private byte[] imagem;
+    private String imagem;
     public Aluno(int id, Curso curso, String nome, String email, String senha, String cpf, String user_role,
-                 Date data_de_nascimento, String sexo) {
+                 Date data_de_nascimento, String sexo, String imagem) {
         super();
         this.id = id;
         this.curso=curso;
@@ -53,6 +52,7 @@ public class Aluno {
         this.user_role = user_role;
         this.data_nascimento = data_de_nascimento;
         this.sexo = sexo;
+        this.imagem = imagem;
     }
     public Aluno() {
         super();
@@ -112,10 +112,10 @@ public class Aluno {
         this.sexo = sexo;
     }
 
-    public byte[] getImagem() {
+    public String getImagem() {
         return imagem;
     }
-    public void setImagem(byte[] imagem) {
+    public void setImagem(String imagem) {
         this.imagem = imagem;
     }
 

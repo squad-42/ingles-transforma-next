@@ -15,16 +15,18 @@ public class Usuario {
 	private String cpf;
 	private String user_role;
 	private String sexo;
+
+	private String imagem;
 	
 	@DateTimeFormat(iso = ISO.DATE, pattern = "yyyy-MM-dd")
-	private Date data_de_nascimento;
+	private Date data_nascimento;
 
 	public Usuario() {
 		super();
 	}
 
 	public Usuario(int id, String nome, String email, String senha, String cpf, String user_role, String sexo,
-			Date data_de_nascimento) {
+			Date data_nascimento, String imagem) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -33,7 +35,8 @@ public class Usuario {
 		this.cpf = cpf;
 		this.user_role = user_role;
 		this.sexo = sexo;
-		this.data_de_nascimento = data_de_nascimento;
+		this.data_nascimento = data_nascimento;
+		this.imagem = imagem;
 	}
 
 	public int getId() {
@@ -92,12 +95,19 @@ public class Usuario {
 		this.sexo = sexo;
 	}
 
-	public Date getData_de_nascimento() {
-		return data_de_nascimento;
+	public Date getData_nascimento() {
+		return data_nascimento;
 	}
 
-	public void setData_de_nascimento(Date data_de_nascimento) {
-		this.data_de_nascimento = data_de_nascimento;
+	public void setData_nascimento(Date data_nascimento) {
+		this.data_nascimento = data_nascimento;
 	}
 
+	public String getImagem() {
+		return imagem;
+	}
+
+	public void setImagem(String imagem) {
+		this.imagem = imagem;
+	}
 }
