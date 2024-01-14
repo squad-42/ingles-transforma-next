@@ -1,18 +1,17 @@
 package squad42.inglesTransforma42.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import squad42.inglesTransforma42.model.Aluno;
 import squad42.inglesTransforma42.model.Professor;
 import squad42.inglesTransforma42.model.Usuario;
 import squad42.inglesTransforma42.repository.AlunoRepository;
 import squad42.inglesTransforma42.repository.ProfessorRepository;
 
+import java.util.Optional;
+
 @RestController
-@RequestMapping("/cadastro")
+@RequestMapping("/usuario")
 public class UsuariosController {
 @Autowired
     private AlunoRepository alunoRepository;
@@ -20,7 +19,7 @@ public class UsuariosController {
     private ProfessorRepository professorRepository;
 
 @PostMapping
-    public void cadastrarUsuario(@RequestBody Usuario usuario){
+    public void cadastrar(@RequestBody Usuario usuario){
     if(usuario.getUser_role().equals("ALUNO")){
         Aluno aluno = new Aluno();
         aluno.setNome(usuario.getNome());
@@ -46,7 +45,37 @@ public class UsuariosController {
 
         professorRepository.save(professor);
     }
-
 }
 
+@GetMapping
+    public Usuario logar(@RequestBody Usuario usuario){
+
+    Aluno aluno = alunoRepository.findByEmail(usuario.getEmail());
+    Professor professor = professorRepository.findByEmail(usuario.getEmail());
+
+        System.out.println(usuario.getEmail());
+
+    if(aluno == null && professor == null){
+        System.out.println("Não achou usuario");
+    }else {
+        if (aluno != null) {
+            if (usuario.getSenha().equals(aluno.getSenha())) {
+                usuario = aluno;
+                System.out.println("Aluno logado");
+            } else {
+                System.out.println("Senha do aluno incorreta");
+            }
+        }
+        if (professor != null) {
+            if (usuario.getSenha().equals(professor.getSenha())) {
+                usuario = professor;
+                System.out.println("Professor logado");
+            } else {
+                System.out.println("Senha do professor incorreta");
+
+            }
+        }
+    }
+    return usuario;
+}
 }
