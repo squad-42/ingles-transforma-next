@@ -1,5 +1,6 @@
 package squad42.inglesTransforma42.controller;
 
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import squad42.inglesTransforma42.enums.UserType;
@@ -36,7 +37,7 @@ public class UsuariosController {
 
     if(aluno == null && professor == null){
         System.out.println("Não achou usuario");
-        throw  new Exception("Email invalido");
+        throw new EntityNotFoundException("Email ou senha invalidos");
     }else {
         if (aluno != null) {
             if (usuario.getSenha().equals(aluno.getSenha())) {
@@ -44,6 +45,8 @@ public class UsuariosController {
                 System.out.println("Aluno logado");
             } else {
                 System.out.println("Senha do aluno incorreta");
+                throw new Exception("Email ou senha invalidos");
+
             }
         }
         if (professor != null) {
@@ -52,7 +55,7 @@ public class UsuariosController {
                 System.out.println("Professor logado");
             } else {
                 System.out.println("Senha do professor incorreta");
-
+                throw new Exception("Email ou senha invalidos");
             }
         }
     }
