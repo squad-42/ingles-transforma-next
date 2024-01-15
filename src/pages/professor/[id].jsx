@@ -8,10 +8,11 @@ import Head from 'next/head';
 const Professor = () => {
   const router = useRouter();
   const { id } = router.query;
+  console.log('ID do Professor:', id);
 
   const selectedProfessor = listaCursos.find((professor) => professor.cod === id);
 
-  if (!selectedProfessor) {   
+  if (!selectedProfessor) {
     return <p>Professor não encontrado.</p>;
   }
 
@@ -37,6 +38,26 @@ const Professor = () => {
       </main>
     </>
   );
+};
+
+export const getStaticPaths = async () => {
+  return {
+    paths: listaCursos.map((professor) => ({
+      params: { id: professor.cod.toString() },
+    })),
+    fallback: false,
+  };
+};
+
+export const getStaticProps = async ({ params }) => {
+  const { id } = params;
+  const selectedProfessor = listaCursos.find((professor) => professor.cod === id);
+
+  return {
+    props: {
+      selectedProfessor,
+    },
+  };
 };
 
 export default Professor;
