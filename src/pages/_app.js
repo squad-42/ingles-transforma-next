@@ -13,13 +13,15 @@ import '@/styles/videoaula.css'
 import '@/styles/login.css'
 import '@/styles/cadastro.css'
 
+import { AppProvider } from "@/context/appContext";
+
 export default function App({ Component, pageProps }) {
   return (
-    <>
+    <AppProvider>
       <Navbar />
       <Sidebar />
       <Component {...pageProps} />
       <Footer />
-    </>
+    </AppProvider>
   )
 }

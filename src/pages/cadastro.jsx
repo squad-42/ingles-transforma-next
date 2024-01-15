@@ -1,6 +1,12 @@
+import { useAppContext } from '@/context/appContext'
+import { useUsuario } from '@/hooks'
 import Head from 'next/head'
 
 const cadastro = () => {
+  const { usuario, handleUsuarioInputChange } = useAppContext()
+  const { nome, email, senha, data_nascimento, imagem, sexo, cpf, user_role } = usuario
+  const { cadastrarUsuario } = useUsuario()
+
   return (
     <>
       <Head>
@@ -10,26 +16,35 @@ const cadastro = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <section class="form-container">
-          <form action="../home/index.html" id="form">
+        <section className="form-container">
+          <div id="form">
             <h3>Cadastrar</h3>
-            <label>Nome <span>*</span></label>
-            <input type="text" placeholder="Harry Potter" maxLength="100" class="box" id="name" required />
-            <label>Email <span>*</span></label>
-            <input type="email" placeholder="hp@email.com" maxLength="100" class="box" id="email" required />
-            <label>Tipo <span>*</span></label>
-            <select class="box" id="type" required>
-              <option value="aluno">Aluno(a)</option>
-              <option value="professor">Professor(a)</option>
+            <select className="box" id="type" name='user_role' value={user_role} onChange={handleUsuarioInputChange} required>
+              <option value="ALUNO">Aluno(a)</option>
+              <option value="PROFESSOR">Professor(a)</option>
             </select>
+            <label>Nome <span>*</span></label>
+            <input type="text" placeholder="Harry Potter" maxLength="100" className="box" id="name" name='nome' value={nome} onChange={handleUsuarioInputChange} required />
+            <label>Email <span>*</span></label>
+            <input type="email" placeholder="hp@email.com" maxLength="100" className="box" id="email" name='email' value={email} onChange={handleUsuarioInputChange} required />
+            <label>CPF <span>*</span></label>
+            <input type="text" placeholder="CPF" maxLength="100" className="box" name='cpf' required value={cpf} onChange={handleUsuarioInputChange} />
+            <label>Data de Nascimento <span>*</span></label>
+            <input type="date" className="box" name="data_nascimento" value={data_nascimento} onChange={handleUsuarioInputChange} required />
+            <label>Sexo <span>*</span></label>
+            <select className="box" name="sexo" value={sexo} onChange={handleUsuarioInputChange} required>
+              <option value="Masculino">Masculino</option>
+              <option value="Feminino">Feminino</option>
+              <option value="Nao_binario">Não Binário</option>
+            </select>
+            <label>Imagem <span>*</span></label>
+            <input type="text" placeholder="Link da imagem" maxLength="100" className="box" name='imagem' required value={imagem} onChange={handleUsuarioInputChange} />
             <label>Senha <span>*</span></label>
-            <input type="password" minlength="6" placeholder="Digite sua nova senha" maxLength="50" class="box"
-              id="password" required />
+            <input type="password" minLength="6" placeholder="Digite sua nova senha" name='senha' maxLength="50" className="box" id="password" value={senha} onChange={handleUsuarioInputChange} required />
             <label>Confirmar senha <span>*</span></label>
-            <input type="password" minlength="6" placeholder="Confirme sua senha" maxLength="50" class="box"
-              id="confPassword" required />
-            <button type="submit" class="btn btn-dark-blue" id="btnSignUp">Confirmar</button>
-          </form>
+            <input type="password" minLength="6" placeholder="Confirme sua senha" maxLength="50" className="box" id="confPassword" required />
+            <button type="submit" className="btn btn-dark-blue" id="btnSignUp" onClick={() => cadastrarUsuario()}>Confirmar</button>
+          </div>
         </section>
       </main>
     </>

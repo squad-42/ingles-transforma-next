@@ -6,7 +6,7 @@
   justify-content: center;
   min-height: calc(100vh - 20rem);
 
-  form {
+  #form {
     @include box(var(--white));
     padding-top: 1rem;
     width: 50rem;

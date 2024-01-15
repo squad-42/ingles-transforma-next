@@ -13,6 +13,7 @@ import squad42.inglesTransforma42.repository.ProfessorRepository;
 
 @RestController
 @RequestMapping("/usuario")
+@CrossOrigin(origins = "http://localhost:3000")
 public class UsuariosController {
 @Autowired
     private AlunoRepository alunoRepository;
