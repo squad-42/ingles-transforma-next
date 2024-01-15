@@ -5,6 +5,7 @@ import java.util.Date;
 
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
+import squad42.inglesTransforma42.enums.UserType;
 
 public class Usuario {
 
@@ -13,7 +14,7 @@ public class Usuario {
 	private String email;
 	private String senha;
 	private String cpf;
-	private String user_role;
+	private UserType user_role;
 	private String sexo;
 
 	private String imagem;
@@ -25,7 +26,7 @@ public class Usuario {
 		super();
 	}
 
-	public Usuario(int id, String nome, String email, String senha, String cpf, String user_role, String sexo,
+	public Usuario(int id, String nome, String email, String senha, String cpf, UserType user_role, String sexo,
 			Date data_nascimento, String imagem) {
 		super();
 		this.id = id;
@@ -79,11 +80,11 @@ public class Usuario {
 		this.cpf = cpf;
 	}
 
-	public String getUser_role() {
+	public UserType getUser_role() {
 		return user_role;
 	}
 
-	public void setUser_role(String user_role) {
+	public void setUser_role(UserType user_role) {
 		this.user_role = user_role;
 	}
 

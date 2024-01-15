@@ -7,6 +7,7 @@ import org.springframework.format.annotation.DateTimeFormat.ISO;
 
 
 import jakarta.persistence.*;
+import squad42.inglesTransforma42.enums.UserType;
 
 @Entity
 @Table(name= "Professores")
@@ -23,8 +24,9 @@ public class Professor extends Usuario{
 	private String senha;
 	@Column(nullable=false)
 	private String cpf;
+	@Enumerated(EnumType.STRING)
 	@Column(nullable=false)
-	private String user_role;
+	private UserType user_role;
 	@Column(nullable=false)
 	@DateTimeFormat(iso = ISO.DATE, pattern = "yyyy-MM-dd")
 	private Date data_nascimento;
@@ -34,7 +36,7 @@ public class Professor extends Usuario{
 	@Column(nullable = false)
 	private String imagem;
 	
-	public Professor(int id, String nome, String email, String senha, String cpf, String user_role,
+	public Professor(int id, String nome, String email, String senha, String cpf, UserType user_role,
 			Date data_nascimento, String sexo, String imagem) {
 		super();
 		this.id = id;
@@ -46,6 +48,17 @@ public class Professor extends Usuario{
 		this.data_nascimento = data_nascimento;
 		this.sexo = sexo;
 		this.imagem = imagem;
+	}
+
+	public Professor(Usuario usuario){
+		this.nome = usuario.getNome();
+		this.email = usuario.getEmail();
+		this.senha = usuario.getSenha();
+		this.cpf = usuario.getCpf();
+		this.user_role = usuario.getUser_role();
+		this.data_nascimento = usuario.getData_nascimento();
+		this.sexo = usuario.getSexo();
+		this.imagem = usuario.getImagem();
 	}
 	public Professor() {
 		super();
@@ -80,10 +93,10 @@ public class Professor extends Usuario{
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
-	public String getUser_role() {
+	public UserType getUser_role() {
 		return user_role;
 	}
-	public void setUser_role(String user_role) {
+	public void setUser_role(UserType user_role) {
 		this.user_role = user_role;
 	}
 	public Date getData_nascimento() {

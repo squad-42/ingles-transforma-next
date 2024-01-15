@@ -2,13 +2,12 @@ package squad42.inglesTransforma42.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import squad42.inglesTransforma42.enums.UserType;
 import squad42.inglesTransforma42.model.Aluno;
 import squad42.inglesTransforma42.model.Professor;
 import squad42.inglesTransforma42.model.Usuario;
 import squad42.inglesTransforma42.repository.AlunoRepository;
 import squad42.inglesTransforma42.repository.ProfessorRepository;
-
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/usuario")
@@ -20,35 +19,15 @@ public class UsuariosController {
 
 @PostMapping
     public void cadastrar(@RequestBody Usuario usuario){
-    if(usuario.getUser_role().equals("ALUNO")){
-        Aluno aluno = new Aluno();
-        aluno.setNome(usuario.getNome());
-        aluno.setEmail(usuario.getEmail());
-        aluno.setSenha(usuario.getSenha());
-        aluno.setCpf(usuario.getCpf());
-        aluno.setData_nascimento(usuario.getData_nascimento());
-        aluno.setSexo(usuario.getSexo());
-        aluno.setUser_role(usuario.getUser_role());
-        aluno.setImagem(usuario.getImagem());
-
-        alunoRepository.save(aluno);
+    if(usuario.getUser_role() == UserType.ALUNO){
+        alunoRepository.save(new Aluno(usuario));
     }else{
-        Professor professor = new Professor();
-        professor.setNome(usuario.getNome());
-        professor.setEmail(usuario.getEmail());
-        professor.setSenha(usuario.getSenha());
-        professor.setCpf(usuario.getCpf());
-        professor.setData_nascimento(usuario.getData_nascimento());
-        professor.setSexo(usuario.getSexo());
-        professor.setUser_role(usuario.getUser_role());
-        professor.setImagem(usuario.getImagem());
-
-        professorRepository.save(professor);
+        professorRepository.save(new Professor(usuario));
     }
 }
 
 @GetMapping
-    public Usuario logar(@RequestBody Usuario usuario){
+    public Usuario logar(@RequestBody Usuario usuario) throws Exception{
 
     Aluno aluno = alunoRepository.findByEmail(usuario.getEmail());
     Professor professor = professorRepository.findByEmail(usuario.getEmail());
@@ -57,6 +36,7 @@ public class UsuariosController {
 
     if(aluno == null && professor == null){
         System.out.println("Não achou usuario");
+        throw  new Exception("Email invalido");
     }else {
         if (aluno != null) {
             if (usuario.getSenha().equals(aluno.getSenha())) {
