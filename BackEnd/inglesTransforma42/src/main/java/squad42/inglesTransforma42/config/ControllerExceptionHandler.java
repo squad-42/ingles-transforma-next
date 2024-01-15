@@ -1,6 +1,7 @@
 package squad42.inglesTransforma42.config;
 
 import jakarta.persistence.EntityNotFoundException;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -17,7 +18,13 @@ public class ControllerExceptionHandler {
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity senhaIncorreta(Exception exception){
-        ExceptionDTO exceptionDTO = new ExceptionDTO("Email ou senha invalidos", "500");
+        ExceptionDTO exceptionDTO = new ExceptionDTO("Email ou senha invalidos.", "500");
+        return ResponseEntity.internalServerError().body(exceptionDTO);
+    }
+
+    @ExceptionHandler(DataIntegrityViolationException.class)
+    public ResponseEntity emailJaCadastrado(Exception exception){
+        ExceptionDTO exceptionDTO = new ExceptionDTO("Email já cadastrado.", "500");
         return ResponseEntity.internalServerError().body(exceptionDTO);
     }
 }

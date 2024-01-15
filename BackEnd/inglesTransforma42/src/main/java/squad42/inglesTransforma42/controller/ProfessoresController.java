@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import squad42.inglesTransforma42.model.Professor;
+import squad42.inglesTransforma42.model.Usuario;
 import squad42.inglesTransforma42.repository.ProfessorRepository;
 
 import java.util.List;

@@ -3,24 +3,37 @@ package squad42.inglesTransforma42.model;
 
 import java.util.Date;
 
+import jakarta.persistence.*;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
 import squad42.inglesTransforma42.enums.UserType;
 
+@MappedSuperclass
 public class Usuario {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	private String nome;
-	private String email;
-	private String senha;
-	private String cpf;
-	private UserType user_role;
-	private String sexo;
 
-	private String imagem;
-	
+	@Column(nullable=false)
+	private String nome;
+	@Column(nullable=false, unique = true)
+	private String email;
+	@Column(nullable=false)
+	private String senha;
+	@Column(nullable=false, unique = true)
+	private String cpf;
+	@Enumerated(EnumType.STRING)
+	@Column(nullable=false)
+	private UserType user_role;
+	@Column(nullable=false)
 	@DateTimeFormat(iso = ISO.DATE, pattern = "yyyy-MM-dd")
 	private Date data_nascimento;
+	@Column(nullable=false)
+	private String sexo;
+
+	@Column(nullable = false)
+	private String imagem;
 
 	public Usuario() {
 		super();
@@ -28,7 +41,6 @@ public class Usuario {
 
 	public Usuario(int id, String nome, String email, String senha, String cpf, UserType user_role, String sexo,
 			Date data_nascimento, String imagem) {
-		super();
 		this.id = id;
 		this.nome = nome;
 		this.email = email;
@@ -38,6 +50,17 @@ public class Usuario {
 		this.sexo = sexo;
 		this.data_nascimento = data_nascimento;
 		this.imagem = imagem;
+	}
+
+	public Usuario(Usuario usuario){
+		this.nome = usuario.getNome();
+		this.email = usuario.getEmail();
+		this.senha = usuario.getSenha();
+		this.cpf = usuario.getCpf();
+		this.user_role = usuario.getUser_role();
+		this.data_nascimento = usuario.getData_nascimento();
+		this.sexo = usuario.getSexo();
+		this.imagem = usuario.getImagem();
 	}
 
 	public int getId() {

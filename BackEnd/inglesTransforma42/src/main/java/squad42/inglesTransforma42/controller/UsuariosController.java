@@ -2,6 +2,7 @@ package squad42.inglesTransforma42.controller;
 
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.web.bind.annotation.*;
 import squad42.inglesTransforma42.enums.UserType;
 import squad42.inglesTransforma42.model.Aluno;
@@ -21,8 +22,14 @@ public class UsuariosController {
 @PostMapping
     public void cadastrar(@RequestBody Usuario usuario){
     if(usuario.getUser_role() == UserType.ALUNO){
+        if(professorRepository.findByEmail(usuario.getEmail()) != null){
+            throw new DataIntegrityViolationException("Email já cadastrado");
+        }
         alunoRepository.save(new Aluno(usuario));
     }else{
+        if (alunoRepository.findByEmail(usuario.getEmail()) != null){
+            throw new DataIntegrityViolationException("Email já cadastrado");
+        }
         professorRepository.save(new Professor(usuario));
     }
 }
