@@ -21,7 +21,7 @@ public class ControllerExceptionHandler {
         ExceptionDTO exceptionDTO = new ExceptionDTO("Email ou senha invalidos.", "510");
         return ResponseEntity.internalServerError().body(exceptionDTO);
     }
-    
+
     @ExceptionHandler(CustomException.class)
     public ResponseEntity usuarioJaCadastrado(CustomException exception){
         ExceptionDTO exceptionDTO = new ExceptionDTO(exception.getMsg(), "500");

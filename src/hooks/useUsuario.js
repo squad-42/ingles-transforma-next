@@ -5,7 +5,7 @@ import { useState } from 'react'
 const useUsuario = () => {
   const URL = "http://localhost:8080/usuario"
 
-  const { usuario, setErro } = useAppContext()
+  const { usuario, setUsuario, setErro } = useAppContext()
 
   const [mensagem, setMensagem] = useState('')
 
@@ -20,9 +20,20 @@ const useUsuario = () => {
       })
   }
 
+  const logarUsuario = async (email, senha) => {
+    axios.post(`${URL}/login`, { email: email, senha: senha })
+      .then(res => {
+        setUsuario(res.data)
+        console.log("Usuario logado")
+
+      })
+      .catch(err => console.error(err.response.data))
+  }
+
   return {
     mensagem,
-    cadastrarUsuario
+    cadastrarUsuario,
+    logarUsuario
   }
 }
 

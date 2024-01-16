@@ -1,6 +1,23 @@
+import { useAppContext } from '@/context/appContext'
+import { useUsuario } from '@/hooks'
 import Head from 'next/head'
+import { useEffect, useState } from 'react'
 
 const login = () => {
+  const { usuario } = useAppContext()
+  const { logarUsuario } = useUsuario()
+  const [login, setLogin] = useState({ email: '', senha: '' })
+
+  const handleInputChange = e => {
+    setLogin({ ...login, [e.target.name]: e.target.value })
+  }
+
+  const { email, senha } = login
+
+  useEffect(() => {
+    console.log(usuario)
+  }, [usuario])
+
   return (
     <>
       <Head>
@@ -11,14 +28,14 @@ const login = () => {
       </Head>
       <main>
         <section className="form-container">
-          <form action="../home/index.html" id="form">
+          <div id="form">
             <h3>Login</h3>
             <label>Email</label>
-            <input type="email" placeholder="hp@email.com" maxLength="100" className="box" id="inpEmail" required />
+            <input type="email" placeholder="hp@email.com" maxLength="100" className="box" id="inpEmail" name="email" value={email} onChange={handleInputChange} required />
             <label>Senha</label>
-            <input type="password" placeholder="Digite sua nova senha" maxLength="50" className="box" id="inpPassword" required />
-            <button type="submit" className="btn btn-dark-blue" id="btnLogin">Login</button>
-          </form>
+            <input type="password" placeholder="Digite sua nova senha" maxLength="50" className="box" id="inpPassword" name="senha" value={senha} onChange={handleInputChange} required />
+            <button type="submit" className="btn btn-dark-blue" id="btnLogin" onClick={() => logarUsuario(email, senha)}>Login</button>
+          </div>
         </section>
       </main>
     </>
