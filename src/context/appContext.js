@@ -3,6 +3,8 @@ import { createContext, useContext, useState } from "react"
 const AppContext = createContext()
 
 export const AppProvider = ({ children }) => {
+  const [erro, setErro] = useState(false)
+
   const [usuario, setUsuario] = useState({ id: 0, nome: '', email: '', senha: '', cpf: '', user_role: 'ALUNO', data_nascimento: '', sexo: 'Masculino', imagem: '' })
 
   const handleUsuarioInputChange = e => {
@@ -13,6 +15,8 @@ export const AppProvider = ({ children }) => {
   return (
     <AppContext.Provider value={
       {
+        erro,
+        setErro,
         usuario,
         setUsuario,
         handleUsuarioInputChange

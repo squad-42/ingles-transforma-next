@@ -18,13 +18,14 @@ public class ControllerExceptionHandler {
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity senhaIncorreta(Exception exception){
-        ExceptionDTO exceptionDTO = new ExceptionDTO("Email ou senha invalidos.", "500");
+        ExceptionDTO exceptionDTO = new ExceptionDTO("Email ou senha invalidos.", "510");
+        return ResponseEntity.internalServerError().body(exceptionDTO);
+    }
+    
+    @ExceptionHandler(CustomException.class)
+    public ResponseEntity usuarioJaCadastrado(CustomException exception){
+        ExceptionDTO exceptionDTO = new ExceptionDTO(exception.getMsg(), "500");
         return ResponseEntity.internalServerError().body(exceptionDTO);
     }
 
-    @ExceptionHandler(DataIntegrityViolationException.class)
-    public ResponseEntity emailJaCadastrado(Exception exception){
-        ExceptionDTO exceptionDTO = new ExceptionDTO("Email já cadastrado.", "500");
-        return ResponseEntity.internalServerError().body(exceptionDTO);
-    }
 }

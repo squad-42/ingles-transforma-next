@@ -3,9 +3,9 @@ import { useUsuario } from '@/hooks'
 import Head from 'next/head'
 
 const cadastro = () => {
-  const { usuario, handleUsuarioInputChange } = useAppContext()
+  const { usuario, handleUsuarioInputChange, erro } = useAppContext()
   const { nome, email, senha, data_nascimento, imagem, sexo, cpf, user_role } = usuario
-  const { cadastrarUsuario } = useUsuario()
+  const { cadastrarUsuario, mensagem } = useUsuario()
 
   return (
     <>
@@ -43,6 +43,7 @@ const cadastro = () => {
             <input type="password" minLength="6" placeholder="Digite sua nova senha" name='senha' maxLength="50" className="box" id="password" value={senha} onChange={handleUsuarioInputChange} required />
             <label>Confirmar senha <span>*</span></label>
             <input type="password" minLength="6" placeholder="Confirme sua senha" maxLength="50" className="box" id="confPassword" required />
+            {erro && <h2>{mensagem}.</h2>}
             <button type="submit" className="btn btn-dark-blue" id="btnSignUp" onClick={() => cadastrarUsuario()}>Confirmar</button>
           </div>
         </section>
