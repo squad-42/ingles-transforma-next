@@ -8,7 +8,7 @@ const useUsuario = () => {
 
   const cadastrarUsuario = async () => {
     console.log(usuario)
-    axios.post(URL, usuario)
+    axios.post(`${URL}/cadastro`, usuario)
       .then(() => console.log("Usuario cadastrado."))
       .catch(err => console.log(err))
   }

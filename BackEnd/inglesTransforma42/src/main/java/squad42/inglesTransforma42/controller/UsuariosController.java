@@ -20,7 +20,7 @@ public class UsuariosController {
 @Autowired
     private ProfessorRepository professorRepository;
 
-@PostMapping
+@PostMapping("/cadastro")
     public void cadastrar(@RequestBody Usuario usuario){
     if(usuario.getUser_role() == UserType.ALUNO){
         if(professorRepository.findByEmail(usuario.getEmail()) != null){
@@ -35,7 +35,7 @@ public class UsuariosController {
     }
 }
 
-@GetMapping
+    @PostMapping("/login")
     public Usuario logar(@RequestBody Usuario usuario) throws Exception{
 
     Aluno aluno = alunoRepository.findByEmail(usuario.getEmail());
