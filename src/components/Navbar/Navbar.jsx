@@ -3,8 +3,13 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 import { FaSearch, FaBars, FaUser, FaMoon, FaSun } from "react-icons/fa";
+import { LoginModal, UserModal } from '@/components';
+import { useAppContext } from '@/context/appContext';
 
 const Navbar = () => {
+  const { usuario, setUsuario } = useAppContext()
+  const [isOpen, setIsOpen] = useState(false)
+
   return (
     <header>
       <section className="d-flex align-items-center justify-content-between position-relative section-header">
@@ -30,7 +35,7 @@ const Navbar = () => {
           <div id="search-btn">
             <FaSearch />
           </div>
-          <div id="user-btn">
+          <div id="user-btn" onClick={() => setIsOpen(prev => !prev)}>
             <FaUser />
           </div>
           <div id="toggle-btn">
@@ -38,8 +43,8 @@ const Navbar = () => {
           </div>
         </div>
 
-        <div className="profile position-absolute text-center" id="profile-modal">
-
+        <div className={`profile position-absolute text-center ${isOpen ? 'active' : ''}`} id="profile-modal">
+          {usuario.id == 0 ? <LoginModal /> : <UserModal usuario={usuario} location={'navbar'} />}
         </div>
       </section>
     </header>

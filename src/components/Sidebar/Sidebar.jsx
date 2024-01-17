@@ -14,7 +14,7 @@ const Sidebar = () => {
     <div className="sidebar">
       <div className="offcanvas offcanvas-start" tabIndex="-1" id="sidebar">
         <div className="profile text-center" id="profile-sidebar">
-          {usuario.id == 0 ? <LoginModal /> : <UserModal usuario={usuario} />}
+          {usuario.id == 0 ? <LoginModal /> : <UserModal usuario={usuario} location={'sidebar'} />}
         </div>
         <nav className="navbar d-flex flex-column align-items-start justify-content-around ">
           {sidebarOptions.map(({ texto, icone, link }, i) => (
