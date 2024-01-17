@@ -1,9 +1,11 @@
 import { useAppContext } from '@/context/appContext'
 import axios from 'axios'
+import { useRouter } from 'next/router'
 import { useState } from 'react'
 
 const useUsuario = () => {
   const URL = "http://localhost:8080/usuario"
+  const router = useRouter()
 
   const { usuario, setUsuario, setErro } = useAppContext()
 
@@ -12,7 +14,10 @@ const useUsuario = () => {
   const cadastrarUsuario = async () => {
     console.log(usuario)
     axios.post(`${URL}/cadastro`, usuario)
-      .then(() => console.log("Usuario cadastrado."))
+      .then(() => {
+        console.log("Usuario cadastrado.")
+        router.push('/')
+      })
       .catch(err => {
         console.error(err.response.data.mensagem)
         setMensagem(err.response.data.mensagem)
@@ -25,7 +30,7 @@ const useUsuario = () => {
       .then(res => {
         setUsuario(res.data)
         console.log("Usuario logado")
-
+        router.push('/')
       })
       .catch(err => console.error(err.response.data))
   }
