@@ -102,9 +102,21 @@ export const listaCursos = [
     prof: "Luna Lovegood",
     profPic: 2,
     data: "05-05-2023",
-    numDeVid: 13,
+    numDeVid: 2,
     thumb: 3,
-    nome: "Preparação - Exames de Proficiência"
+    nome: "Preparação - Exames de Proficiência",
+    aulas: [
+      {
+        cod: "1",
+        thumb: 3,
+        course: "Preparação - Exames de Proficiência"
+      },
+      {
+        cod: "2",
+        thumb: 3,
+        course: "Preparação - Exames de Proficiência"
+      }
+    ]
   },
   {
     cod: "2",
@@ -113,7 +125,19 @@ export const listaCursos = [
     data: "11-05-2023",
     numDeVid: 13,
     thumb: 2,
-    nome: "Inglês para Negócios"
+    nome: "Inglês para Negócios",
+    aulas: [
+      {
+        cod: "1",
+        thumb: 2,
+        course: ""
+      },
+      {
+        cod: "2",
+        thumb: 2,
+        course: ""
+      }
+    ]
   },
   {
     cod: "3",
@@ -122,7 +146,19 @@ export const listaCursos = [
     data: "21-07-2023",
     numDeVid: 10,
     thumb: 1,
-    nome: "Inglês Geral"
+    nome: "Inglês Geral",
+    aulas: [
+      {
+        cod: "1",
+        thumb: 1,
+        course: ""
+      },
+      {
+        cod: "2",
+        thumb: 1,
+        course: ""
+      }
+    ]
   },
   {
     cod: "4",
@@ -131,7 +167,19 @@ export const listaCursos = [
     data: "07-07-2023",
     numDeVid: 25,
     thumb: 4,
-    nome: "Inglês Acadêmico"
+    nome: "Inglês Acadêmico",
+    aulas: [
+      {
+        cod: "1",
+        thumb: 4,
+        course: ""
+      },
+      {
+        cod: "2",
+        thumb: 4,
+        course: ""
+      }
+    ]
   },
   {
     cod: "5",
@@ -140,7 +188,19 @@ export const listaCursos = [
     data: "27-06-2023",
     numDeVid: 16,
     thumb: 5,
-    nome: "Inglês para viagens"
+    nome: "Inglês para viagens",
+    aulas: [
+      {
+        cod: "1",
+        thumb: 5,
+        course: ""
+      },
+      {
+        cod: "2",
+        thumb: 5,
+        course: ""
+      }
+    ]
   },
   {
     cod: "6",
@@ -149,7 +209,19 @@ export const listaCursos = [
     data: "09-06-2023",
     numDeVid: 12,
     thumb: 6,
-    nome: "Inglês Técnico para área de TI"
+    nome: "Inglês Técnico para área de TI",
+    aulas: [
+      {
+        cod: "1",
+        thumb: 6,
+        course: ""
+      },
+      {
+        cod: "2",
+        thumb: 6,
+        course: ""
+      }
+    ]
   },
 ]
 
