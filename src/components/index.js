@@ -9,6 +9,9 @@ import CardSobre from "./CardSobre/CardSobre";
 import Aluno from "./Usuario/Aluno";
 import Professor from "./Usuario/Professor";
 
+import LoginModal from "./LoginModal/LoginModal";
+import UserModal from "./UserModal/UserModal";
+
 export {
   Navbar,
   Sidebar,
@@ -17,5 +20,7 @@ export {
   CardProfessor,
   CardSobre,
   Aluno,
-  Professor
+  Professor,
+  LoginModal,
+  UserModal
 }
