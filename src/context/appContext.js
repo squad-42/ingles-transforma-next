@@ -7,8 +7,14 @@ export const AppProvider = ({ children }) => {
 
   const [usuario, setUsuario] = useState({ id: 0, nome: '', email: '', senha: '', cpf: '', user_role: 'ALUNO', data_nascimento: '', sexo: 'Masculino', imagem: '' })
 
+  const [curso, setCurso] = useState({ id: 0, nome: "", qtd_aulas: 0, data_publicacao: "", data_fechamento: "", imagem: "", professor: { id: 0 } })
+
   const handleUsuarioInputChange = e => {
     setUsuario({ ...usuario, [e.target.name]: e.target.value })
+  }
+
+  const handleCursoInputChange = e => {
+    setCurso({ ...curso, [e.target.name]: e.target.value })
   }
 
 
@@ -19,6 +25,9 @@ export const AppProvider = ({ children }) => {
         setErro,
         usuario,
         setUsuario,
+        curso,
+        setCurso,
+        handleCursoInputChange,
         handleUsuarioInputChange
       }}>
       {children}

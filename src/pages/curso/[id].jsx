@@ -16,7 +16,7 @@ const curso = () => {
     return <p>Curso não encontrado.</p>;
   }
 
-  
+
   return (
     <>
       <Head>
@@ -30,36 +30,36 @@ const curso = () => {
           <h1 className="heading">Detalhes da playlist</h1>
 
           <div className="row">
-            <div class="col">
-          <form action="" method="post" class="save-list">
-            <button type="submit"><i class="far fa-bookmark"></i><span>salvar playlist</span></button>
-          </form>
-          <div class="thumb">
-            <span>{selectedCurso.numOfVid} vídeos</span>
-            <img src={`../thumb-${selectedCurso.thumb}.png`} alt=""/>
-          </div>
-        </div>
-
-        <div class="col">
-          <div class="tutor">
-            <img src={`../pic-${selectedCurso.profPic}.jpg`} alt=""/>
-            <div>
-              <h3>{selectedCurso.prof}</h3>
-              <span>Professor</span>
+            <div className="col">
+              <form action="" method="post" className="save-list">
+                <button type="submit"><i className="far fa-bookmark"></i><span>salvar playlist</span></button>
+              </form>
+              <div className="thumb">
+                <span>{selectedCurso.numOfVid} vídeos</span>
+                <img src={`../thumb-${selectedCurso.thumb}.png`} alt="" />
+              </div>
             </div>
-          </div>
 
-          <div class="details">
-            <h3>{selectedCurso.course}</h3>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deleniti nostrum ipsum ut possimus veritatis
-              fuga!</p>
-            <div class="date">
-              <i class="fas fa-calendar">
-                <span>{selectedCurso.date}</span>
-              </i>
+            <div className="col">
+              <div className="tutor">
+                <img src={`../pic-${selectedCurso.profPic}.jpg`} alt="" />
+                <div>
+                  <h3>{selectedCurso.prof}</h3>
+                  <span>Professor</span>
+                </div>
+              </div>
+
+              <div className="details">
+                <h3>{selectedCurso.course}</h3>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deleniti nostrum ipsum ut possimus veritatis
+                  fuga!</p>
+                <div className="date">
+                  <i className="fas fa-calendar">
+                    <span>{selectedCurso.date}</span>
+                  </i>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
           </div>
         </section>
 
@@ -67,18 +67,18 @@ const curso = () => {
           <h2 className="heading">Playlist</h2>
 
           <div className="box-container">
-          {selectedCurso.aulas
+            {selectedCurso.aulas
               .map((aula, i) => (
-                <Link href="../video" class="box">
-                  <i class="fas fa-play"></i>
-                  <img src={`../thumb-${aula.thumb}.png`} alt=""/>
+                <Link href="../video" className="box">
+                  <i className="fas fa-play"></i>
+                  <img src={`../thumb-${aula.thumb}.png`} alt="" />
                   <span>Aula {i}</span>
                   <h3>{aula.course}</h3>
                 </Link>
               ))}
           </div>
         </section>
-        
+
       </main>
     </>
   )

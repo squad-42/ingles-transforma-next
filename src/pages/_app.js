@@ -12,6 +12,7 @@ import '@/styles/aulas.css'
 import '@/styles/videoaula.css'
 import '@/styles/login.css'
 import '@/styles/cadastro.css'
+import '@/styles/usuario.css'
 
 import { AppProvider } from "@/context/appContext";
 

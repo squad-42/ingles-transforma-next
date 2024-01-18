@@ -38,7 +38,7 @@ const Navbar = () => {
           <div id="user-btn" onClick={() => setIsOpen(prev => !prev)}>
             <FaUser />
           </div>
-          <div id="toggle-btn">
+          <div id="toggle-btn" onClick={() => { }}>
             <FaMoon />
           </div>
         </div>

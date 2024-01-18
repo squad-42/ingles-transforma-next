@@ -6,7 +6,7 @@
   width: 100%;
   border-radius: 0.5rem;
 }
-.video-details .num-class {
+.video-details .num-className {
   font-size: 1.5rem;
   color: var(--black);
 }

@@ -6,7 +6,6 @@ import { LoginModal, UserModal } from '@/components';
 import { useAppContext } from '@/context/appContext';
 
 const Sidebar = () => {
-  /* const [usuario, setUsuario] = useState(true) */
   const { usuario, setUsuario } = useAppContext()
 
 

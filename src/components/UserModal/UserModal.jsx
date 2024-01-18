@@ -7,14 +7,14 @@ const UserModal = ({ usuario, location }) => {
   const { nome, imagem, user_role } = usuario
   return (
     <>
-      <img src={imagem} alt="Foto de Perfil" class="object-fit-cover" />
-      <h3 class="name">{nome}</h3>
-      <p class="role text-capitalize text-center ">{user_role.toLowerCase()}</p>
-      <Link href={"/usuario"} class="btn d-block w-100 btn-dark-blue">Ver perfil</Link>
-      {location === 'navbar' && <div class="d-flex gap-3 mt-3">
+      <img src={imagem} alt="Foto de Perfil" className="object-fit-cover" />
+      <h3 className="name">{nome}</h3>
+      <p className="role text-capitalize text-center ">{user_role.toLowerCase()}</p>
+      <Link href={"/usuario"} className="btn d-block w-100 btn-dark-blue">Ver perfil</Link>
+      {location === 'navbar' && <div className="d-flex gap-3 mt-3">
         <Link
           href={"/"}
-          class="btn btn-orange"
+          className="btn btn-orange"
           onClick={() => setUsuario({
             id: 0,
             nome: '',

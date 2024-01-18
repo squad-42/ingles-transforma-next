@@ -1,6 +1,13 @@
+import { CardStatus, Professor } from '@/components'
+import { useAppContext } from '@/context/appContext'
 import Head from 'next/head'
 
+import { FaHeart, FaBookmark, FaComments } from "react-icons/fa";
+
+
 const usuario = () => {
+  const { usuario } = useAppContext()
+  const { nome, user_role, imagem } = usuario
   return (
     <>
       <Head>
@@ -9,8 +16,34 @@ const usuario = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
-        <h1>Usuario</h1>
+      <main id="professor">
+        <section className="profile">
+          <h1 className="heading">Perfil</h1>
+
+          <div className="details">
+            <div className="user">
+              <img src={imagem} alt="" />
+              <h3>{nome}</h3>
+              <p className="text-capitalize text-center">{user_role.toLowerCase()}</p>
+              <a href="../update/update.html" className="btn btn-dark-blue">Editar perfil</a>
+            </div>
+            <div className="box-container">
+              <CardStatus texto={"Playlist salvas"} numero={3} icon={FaBookmark} />
+              <CardStatus texto={"Aulas curtidas"} numero={5} icon={FaHeart} />
+              <CardStatus texto={"Comentarios"} numero={10} icon={FaComments} />
+            </div>
+          </div>
+
+
+          <section id="courses">
+            <h2 className="heading">Playlists</h2>
+            <div className="box-container">
+              <Professor />
+            </div>
+
+          </section>
+
+        </section>
       </main>
     </>
   )
