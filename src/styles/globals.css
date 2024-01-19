@@ -73,11 +73,11 @@ main {
   min-height: 100vh;
 }
 
-body {
+div.body {
   background-color: var(--light-bg);
   overflow-x: hidden;
 }
-body.dark {
+div.body.dark {
   --dark-blue: hsl(227, 100%, 91%);
   --white: #222;
   --black: #fff;

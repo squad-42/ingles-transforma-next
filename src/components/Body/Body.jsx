@@ -4,9 +4,9 @@ import React from 'react'
 const Body = ({ children }) => {
   const { darkMode } = useAppContext()
   return (
-    <body className={darkMode ? 'dark' : ''}>
+    <div className={`body ${darkMode ? 'dark' : ''}`}>
       {children}
-    </body>
+    </div>
   )
 }
 

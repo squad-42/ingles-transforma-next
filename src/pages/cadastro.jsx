@@ -1,11 +1,16 @@
 import { useAppContext } from '@/context/appContext'
 import { useUsuario } from '@/hooks'
 import Head from 'next/head'
+import { useEffect } from 'react'
 
 const cadastro = () => {
-  const { usuario, handleUsuarioInputChange, erro } = useAppContext()
+  const { usuario, handleUsuarioInputChange, erro, setErro } = useAppContext()
   const { nome, email, senha, data_nascimento, imagem, sexo, cpf, user_role } = usuario
   const { cadastrarUsuario, mensagem } = useUsuario()
+
+  useEffect(() => {
+    setErro(false)
+  }, [])
 
   return (
     <>
