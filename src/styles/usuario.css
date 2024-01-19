@@ -49,15 +49,16 @@
   gap: 1.5rem;
   margin-bottom: 1rem;
 }
-#professor .details .box-container .box .flex i svg {
-  height: 4.5rem;
-  width: 4.5rem;
+#professor .details .box-container .box .flex i {
   border-radius: 0.5rem;
-  background-color: var(--black);
-  line-height: 4.4rem;
   font-size: 2rem;
   text-align: center;
+  padding: 5px;
+  background-color: var(--black);
+}
+#professor .details .box-container .box .flex i svg {
   color: var(--white);
+  margin: 0;
 }
 #professor .details .box-container .box .flex h3 {
   font-size: 2rem;

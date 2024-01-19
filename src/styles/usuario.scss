@@ -57,15 +57,15 @@
           margin-bottom: 1rem;
 
           i {
+            border-radius: .5rem;
+            font-size: $fs-20;
+            text-align: center;
+            padding: 5px;
+            background-color: var(--black);
+
             svg {
-              height: 4.5rem;
-              width: 4.5rem;
-              border-radius: .5rem;
-              background-color: var(--black);
-              line-height: 4.4rem;
-              font-size: $fs-20;
-              text-align: center;
               color: var(--white);
+              margin: 0;
             }
           }
 
