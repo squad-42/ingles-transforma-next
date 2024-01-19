@@ -9,6 +9,9 @@ export const AppProvider = ({ children }) => {
 
   const [curso, setCurso] = useState({ id: 0, nome: "", qtd_aulas: 0, data_publicacao: "", data_fechamento: "", imagem: "", professor: { id: 0 } })
 
+  const [darkMode, setDarkMode] = useState(false)
+
+
   const handleUsuarioInputChange = e => {
     setUsuario({ ...usuario, [e.target.name]: e.target.value })
   }
@@ -21,6 +24,8 @@ export const AppProvider = ({ children }) => {
   return (
     <AppContext.Provider value={
       {
+        darkMode,
+        setDarkMode,
         erro,
         setErro,
         usuario,

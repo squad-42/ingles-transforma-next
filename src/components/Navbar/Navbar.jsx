@@ -7,15 +7,20 @@ import { LoginModal, UserModal } from '@/components';
 import { useAppContext } from '@/context/appContext';
 
 const Navbar = () => {
-  const { usuario, setUsuario } = useAppContext()
+  const { usuario } = useAppContext()
   const [isOpen, setIsOpen] = useState(false)
+  const { darkMode, setDarkMode } = useAppContext()
+
+
+
+
 
   return (
     <header>
       <section className="d-flex align-items-center justify-content-between position-relative section-header">
         <Link href={"/"} className="logo">
           <Image
-            src={` ${'icons/logo-texto.svg'}`}
+            src={` ${darkMode ? 'icons/logo-texto-branco.svg' : 'icons/logo-texto.svg'}`}
             width={80}
             height={54}
           />
@@ -38,8 +43,9 @@ const Navbar = () => {
           <div id="user-btn" onClick={() => setIsOpen(prev => !prev)}>
             <FaUser />
           </div>
-          <div id="toggle-btn" onClick={() => { }}>
-            <FaMoon />
+          <div id="toggle-btn" onClick={() => setDarkMode(prev => !prev)}>
+            {!darkMode && <FaMoon />}
+            {darkMode && <FaSun />}
           </div>
         </div>
 

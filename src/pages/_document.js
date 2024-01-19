@@ -1,15 +1,11 @@
 import { Html, Head, Main, NextScript } from 'next/document'
 
 export default function Document() {
-  let darkMode;
-  if (typeof window !== 'undefined') {
-    darkMode = JSON.parse(localStorage.getItem("dark-mode"))
-  }
 
   return (
     <Html lang="en">
       <Head />
-      <body className={`${darkMode == null ? '' : ''}`}>
+      <body>
         <Main />
         <NextScript />
         <script

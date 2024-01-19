@@ -32,7 +32,7 @@ const CardProfessor = ({ professor }) => {
       <div className="stats">
         <p>Playlist: <span>1</span></p>
         {/* <p>Nº de vídeos: <span>{qtd_aulas}</span></p> */}
-        <Link href={`/professor/${professor.cod}`}>
+        <Link href={`/professor/${professor.id}`}>
           <span className="btn btn-dark-blue">Ver perfil</span>
         </Link>
       </div>

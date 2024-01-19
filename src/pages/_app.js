@@ -1,4 +1,4 @@
-import { Footer, Navbar, Sidebar } from "@/components";
+import { Body, Footer, Navbar, Sidebar } from "@/components";
 
 import 'bootstrap/dist/css/bootstrap.css'
 
@@ -19,10 +19,12 @@ import { AppProvider } from "@/context/appContext";
 export default function App({ Component, pageProps }) {
   return (
     <AppProvider>
-      <Navbar />
-      <Sidebar />
-      <Component {...pageProps} />
-      <Footer />
+      <Body>
+        <Navbar />
+        <Sidebar />
+        <Component {...pageProps} />
+        <Footer />
+      </Body>
     </AppProvider>
   )
 }

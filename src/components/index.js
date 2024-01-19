@@ -1,3 +1,5 @@
+import Body from "./Body/Body";
+
 import Navbar from "./Navbar/Navbar";
 import Sidebar from "./Sidebar/Sidebar";
 import Footer from "./Footer/Footer";
@@ -17,6 +19,7 @@ import UserModal from "./UserModal/UserModal";
 import FormCurso from "./FormCurso/FormCurso";
 
 export {
+  Body,
   Navbar,
   Sidebar,
   Footer,

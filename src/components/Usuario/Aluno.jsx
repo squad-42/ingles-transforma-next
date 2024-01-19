@@ -2,7 +2,9 @@ import React from 'react'
 
 const Aluno = () => {
   return (
-    <div>Aluno</div>
+    <div>
+      PLAYLIST ALUNO
+    </div>
   )
 }
 

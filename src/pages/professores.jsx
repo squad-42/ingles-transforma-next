@@ -33,9 +33,7 @@ const professores = () => {
             </div>
 
             {professores.map((professor, i) => (
-              <Link href={`/professor/${professor.cod}`} key={i}>
-                <CardProfessor professor={professor} />
-              </Link>
+              <CardProfessor professor={professor} />
             ))}
 
           </div>

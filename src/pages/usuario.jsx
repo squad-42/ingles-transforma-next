@@ -1,4 +1,4 @@
-import { CardStatus, Professor } from '@/components'
+import { Aluno, CardStatus, Professor } from '@/components'
 import { useAppContext } from '@/context/appContext'
 import Head from 'next/head'
 
@@ -38,7 +38,7 @@ const usuario = () => {
           <section id="courses">
             <h2 className="heading">Playlists</h2>
             <div className="box-container">
-              <Professor />
+              {user_role === "ALUNO" ? <Aluno /> : <Professor />}
             </div>
 
           </section>

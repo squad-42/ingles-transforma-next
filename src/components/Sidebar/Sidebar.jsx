@@ -6,12 +6,12 @@ import { LoginModal, UserModal } from '@/components';
 import { useAppContext } from '@/context/appContext';
 
 const Sidebar = () => {
-  const { usuario, setUsuario } = useAppContext()
+  const { usuario, setUsuario, darkMode } = useAppContext()
 
 
   return (
     <div className="sidebar">
-      <div className="offcanvas offcanvas-start" tabIndex="-1" id="sidebar">
+      <div className={`offcanvas offcanvas-start ${darkMode ? 'text-bg-dark' : ''}`} tabIndex="-1" id="sidebar">
         <div className="profile text-center" id="profile-sidebar">
           {usuario.id == 0 ? <LoginModal /> : <UserModal usuario={usuario} location={'sidebar'} />}
         </div>
