@@ -7,7 +7,9 @@ const useUsuario = () => {
   const URL = "http://localhost:8080/usuario"
   const router = useRouter()
 
-  const { usuario, setUsuario, setErro } = useAppContext()
+  const [erro, setErro] = useState(false)
+
+  const { usuario, setUsuario } = useAppContext()
 
   const [mensagem, setMensagem] = useState('')
 
@@ -32,10 +34,16 @@ const useUsuario = () => {
         console.log("Usuario logado")
         router.push('/')
       })
-      .catch(err => console.error(err.response.data))
+      .catch(err => {
+        console.error(err.response.data.mensagem)
+        setMensagem(err.response.data.mensagem)
+        setErro(true)
+      })
   }
 
   return {
+    erro,
+    setErro,
     mensagem,
     cadastrarUsuario,
     logarUsuario

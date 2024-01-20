@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 
 const login = () => {
   const { usuario } = useAppContext()
-  const { logarUsuario } = useUsuario()
+  const { logarUsuario, mensagem, erro, setErro } = useUsuario()
   const [login, setLogin] = useState({ email: '', senha: '' })
 
   const handleInputChange = e => {
@@ -13,6 +13,10 @@ const login = () => {
   }
 
   const { email, senha } = login
+
+  useEffect(() => {
+    setErro(false)
+  }, [])
 
   useEffect(() => {
     console.log(usuario)
@@ -34,6 +38,7 @@ const login = () => {
             <input type="email" placeholder="hp@email.com" maxLength="100" className="box" id="inpEmail" name="email" value={email} onChange={handleInputChange} required />
             <label>Senha</label>
             <input type="password" placeholder="Digite sua nova senha" maxLength="50" className="box" id="inpPassword" name="senha" value={senha} onChange={handleInputChange} required />
+            {erro && <h2 className="alert alert-danger" role="alert">{mensagem}.</h2>}
             <button type="submit" className="btn btn-dark-blue" id="btnLogin" onClick={() => logarUsuario(email, senha)}>Login</button>
           </div>
         </section>

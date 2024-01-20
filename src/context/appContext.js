@@ -3,7 +3,7 @@ import { createContext, useContext, useState } from "react"
 const AppContext = createContext()
 
 export const AppProvider = ({ children }) => {
-  const [erro, setErro] = useState(false)
+  /* const [erro, setErro] = useState(false) */
 
   const [usuario, setUsuario] = useState({ id: 0, nome: '', email: '', senha: '', cpf: '', user_role: 'ALUNO', data_nascimento: '', sexo: 'Masculino', imagem: '' })
 
@@ -26,8 +26,8 @@ export const AppProvider = ({ children }) => {
       {
         darkMode,
         setDarkMode,
-        erro,
-        setErro,
+        /*  erro,
+         setErro, */
         usuario,
         setUsuario,
         curso,

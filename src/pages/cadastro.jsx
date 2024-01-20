@@ -4,9 +4,9 @@ import Head from 'next/head'
 import { useEffect } from 'react'
 
 const cadastro = () => {
-  const { usuario, handleUsuarioInputChange, erro, setErro } = useAppContext()
+  const { usuario, handleUsuarioInputChange } = useAppContext()
   const { nome, email, senha, data_nascimento, imagem, sexo, cpf, user_role } = usuario
-  const { cadastrarUsuario, mensagem } = useUsuario()
+  const { cadastrarUsuario, mensagem, erro, setErro } = useUsuario()
 
   useEffect(() => {
     setErro(false)
