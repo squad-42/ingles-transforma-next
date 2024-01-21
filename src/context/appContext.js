@@ -10,6 +10,8 @@ export const AppProvider = ({ children }) => {
 
   const [curso, setCurso] = useState({ id: 0, nome: "", qtd_aulas: 0, data_publicacao: "", data_fechamento: "", imagem: "", professor: { id: 0 } })
 
+  const [cursos, setCursos] = useState([])
+
   const [darkMode, setDarkMode] = useState(false)
 
 
@@ -23,19 +25,20 @@ export const AppProvider = ({ children }) => {
 
 
   return (
-    <AppContext.Provider value={
-      {
-        valido,
-        setValido,
-        darkMode,
-        setDarkMode,
-        usuario,
-        setUsuario,
-        curso,
-        setCurso,
-        handleCursoInputChange,
-        handleUsuarioInputChange
-      }}>
+    <AppContext.Provider value={{
+      valido,
+      setValido,
+      darkMode,
+      setDarkMode,
+      usuario,
+      setUsuario,
+      curso,
+      setCurso,
+      cursos,
+      setCursos,
+      handleCursoInputChange,
+      handleUsuarioInputChange
+    }}>
       {children}
     </AppContext.Provider>
   )

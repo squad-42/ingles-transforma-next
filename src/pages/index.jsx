@@ -1,12 +1,14 @@
 import { CardCurso } from '@/components'
 import { categorias, listaCursos, topicos } from '@/constants/data'
+import { useAppContext } from '@/context/appContext'
 import { useCurso } from '@/hooks'
 import Head from 'next/head'
 import Link from 'next/link'
 import { useEffect } from 'react'
 
 export default function Home() {
-  const { cursos, listarCursos } = useCurso()
+  const { cursos } = useAppContext()
+  const { listarCursos } = useCurso()
   useEffect(() => {
     listarCursos()
   }, [])

@@ -5,8 +5,8 @@ import { useState } from 'react'
 const useCurso = () => {
   const URL = "http://localhost:8080/cursos"
 
-  const { curso, setValido } = useAppContext()
-  const [cursos, setCursos] = useState([])
+  const { curso, setValido, setCursos } = useAppContext()
+  /*  const [cursos, setCursos] = useState([]) */
 
   const { nome, qtd_aulas, data_publicacao, data_fechamento, imagem } = curso
 
@@ -47,7 +47,6 @@ const useCurso = () => {
   }
 
   return {
-    cursos,
     criarCurso,
     listarCursos,
     editarCurso,

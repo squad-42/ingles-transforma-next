@@ -4,8 +4,8 @@ import { useAppContext } from '@/context/appContext'
 import { useCurso } from '@/hooks'
 
 const Professor = () => {
-  const { setCurso, usuario } = useAppContext()
-  const { listarCursos, cursos } = useCurso()
+  const { setCurso, usuario, cursos } = useAppContext()
+  const { listarCursos } = useCurso()
 
   useEffect(() => {
     listarCursos()

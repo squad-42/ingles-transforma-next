@@ -1,13 +1,17 @@
 import { CardCurso } from '@/components'
+import { useAppContext } from '@/context/appContext'
 import { useCurso } from '@/hooks'
 import Head from 'next/head'
 import { useEffect } from 'react'
 
 const cursos = () => {
-  const { cursos, listarCursos } = useCurso()
+  const { cursos } = useAppContext()
+  const { listarCursos } = useCurso()
+
   useEffect(() => {
     listarCursos()
   }, [])
+
   return (
     <>
       <Head>
