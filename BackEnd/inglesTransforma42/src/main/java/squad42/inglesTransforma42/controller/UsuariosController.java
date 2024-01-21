@@ -2,10 +2,11 @@ package squad42.inglesTransforma42.controller;
 
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.web.bind.annotation.*;
-import squad42.inglesTransforma42.config.CustomException;
+import squad42.inglesTransforma42.exception.CpfJaCadastradoException;
+import squad42.inglesTransforma42.exception.EmailJaCadastradoException;
 import squad42.inglesTransforma42.enums.UserType;
+import squad42.inglesTransforma42.exception.SenhaIncorretaException;
 import squad42.inglesTransforma42.model.Aluno;
 import squad42.inglesTransforma42.model.Professor;
 import squad42.inglesTransforma42.model.Usuario;
@@ -25,30 +26,30 @@ public class UsuariosController {
     public void cadastrar(@RequestBody Usuario usuario){
     if(usuario.getUser_role() == UserType.ALUNO){
         if(professorRepository.findByEmail(usuario.getEmail()) != null){
-            throw new CustomException("Email já cadastrado");
+            throw new EmailJaCadastradoException();
         }
         if(professorRepository.findByCpf(usuario.getCpf()) != null){
-            throw new CustomException("CPF já cadastrado");
+            throw new CpfJaCadastradoException();
         }
         if(alunoRepository.findByEmail(usuario.getEmail()) != null){
-            throw new CustomException("Email já cadastrado");
+            throw new EmailJaCadastradoException();
         }
         if(alunoRepository.findByCpf(usuario.getCpf()) != null){
-            throw new CustomException("CPF já cadastrado");
+            throw new CpfJaCadastradoException();
         }
         alunoRepository.save(new Aluno(usuario));
     }else{
         if (alunoRepository.findByEmail(usuario.getEmail()) != null){
-            throw new CustomException("Email já cadastrado");
+            throw new EmailJaCadastradoException();
         }
         if (alunoRepository.findByCpf(usuario.getCpf()) != null){
-            throw new CustomException("CPF já cadastrado");
+            throw new CpfJaCadastradoException();
         }
         if(professorRepository.findByEmail(usuario.getEmail()) != null){
-            throw new CustomException("Email já cadastrado");
+            throw new EmailJaCadastradoException();
         }
         if(professorRepository.findByCpf(usuario.getCpf()) != null){
-            throw new CustomException("CPF já cadastrado");
+            throw new CpfJaCadastradoException();
         }
         professorRepository.save(new Professor(usuario));
     }
@@ -72,7 +73,7 @@ public class UsuariosController {
                     System.out.println("Aluno logado");
                 } else {
                     System.out.println("Senha do aluno incorreta");
-                    throw new CustomException("Email ou senha invalidos");
+                    throw new SenhaIncorretaException();
 
                 }
             }
@@ -82,7 +83,7 @@ public class UsuariosController {
                     System.out.println("Professor logado");
                 } else {
                     System.out.println("Senha do professor incorreta");
-                    throw new CustomException("Email ou senha invalidos");
+                    throw new SenhaIncorretaException();
                 }
             }
         }

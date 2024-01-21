@@ -22,7 +22,11 @@ const usuario = () => {
 
           <div className="details">
             <div className="user">
-              <img src={imagem} alt="" />
+              <img
+                src={imagem}
+                alt={`Foto de ${nome}`}
+                className='object-fit-cover'
+              />
               <h3>{nome}</h3>
               <p className="text-capitalize text-center">{user_role.toLowerCase()}</p>
               <a href="../update/update.html" className="btn btn-dark-blue">Editar perfil</a>

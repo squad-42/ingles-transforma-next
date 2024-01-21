@@ -48,7 +48,7 @@ const cadastro = () => {
             <input type="password" minLength="6" placeholder="Digite sua nova senha" name='senha' maxLength="50" className="box" id="password" value={senha} onChange={handleUsuarioInputChange} required />
             <label>Confirmar senha <span>*</span></label>
             <input type="password" minLength="6" placeholder="Confirme sua senha" maxLength="50" className="box" id="confPassword" required />
-            {erro && <h2 className="alert alert-danger" role="alert">{mensagem}.</h2>}
+            {erro && <h2 className="alert alert-danger" role="alert">{mensagem}</h2>}
             <button type="submit" className="btn btn-dark-blue" id="btnSignUp" onClick={() => cadastrarUsuario()}>Confirmar</button>
           </div>
         </section>
