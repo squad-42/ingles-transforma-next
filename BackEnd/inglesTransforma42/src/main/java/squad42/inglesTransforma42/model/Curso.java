@@ -2,6 +2,10 @@ package squad42.inglesTransforma42.model;
 
 import jakarta.persistence.*;
 import org.springframework.format.annotation.DateTimeFormat;
+import squad42.inglesTransforma42.DTOs.CursoDTO;
+
+import java.util.Date;
+
 @Entity
 @Table(name = "Cursos")
 public class Curso {
@@ -40,6 +44,16 @@ public class Curso {
         this.data_publicacao = data_publicacao;
         this.data_fechamento = data_fechamento;
         this.imagem = imagem;
+    }
+
+    public Curso(CursoDTO cursoDTO){
+        this.id = cursoDTO.id();
+        this.professor = cursoDTO.professor();
+        this.nome = cursoDTO.nome();
+        this.qtd_aulas = cursoDTO.qtd_aulas();
+        this.data_publicacao = cursoDTO.data_publicacao();
+        this.data_fechamento = cursoDTO.data_fechamento();
+        this.imagem = cursoDTO.imagem();
     }
 
     public int getId() {

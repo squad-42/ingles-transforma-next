@@ -7,6 +7,7 @@ import jakarta.persistence.*;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
 import squad42.inglesTransforma42.enums.UserType;
+import squad42.inglesTransforma42.DTOs.UsuarioDTO;
 
 @MappedSuperclass
 public class Usuario {
@@ -52,15 +53,15 @@ public class Usuario {
 		this.imagem = imagem;
 	}
 
-	public Usuario(Usuario usuario){
-		this.nome = usuario.getNome();
-		this.email = usuario.getEmail();
-		this.senha = usuario.getSenha();
-		this.cpf = usuario.getCpf();
-		this.user_role = usuario.getUser_role();
-		this.data_nascimento = usuario.getData_nascimento();
-		this.sexo = usuario.getSexo();
-		this.imagem = usuario.getImagem();
+	public Usuario(UsuarioDTO usuario){
+		this.nome = usuario.nome();
+		this.email = usuario.email();
+		this.senha = usuario.senha();
+		this.cpf = usuario.cpf();
+		this.user_role = usuario.user_role();
+		this.data_nascimento = usuario.data_nascimento();
+		this.sexo = usuario.sexo();
+		this.imagem = usuario.imagem();
 	}
 
 	public int getId() {

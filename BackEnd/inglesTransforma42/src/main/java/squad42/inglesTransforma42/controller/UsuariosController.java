@@ -9,9 +9,9 @@ import squad42.inglesTransforma42.enums.UserType;
 import squad42.inglesTransforma42.exception.SenhaIncorretaException;
 import squad42.inglesTransforma42.model.Aluno;
 import squad42.inglesTransforma42.model.Professor;
-import squad42.inglesTransforma42.model.Usuario;
 import squad42.inglesTransforma42.repository.AlunoRepository;
 import squad42.inglesTransforma42.repository.ProfessorRepository;
+import squad42.inglesTransforma42.DTOs.UsuarioDTO;
 
 @RestController
 @RequestMapping("/usuario")
@@ -23,32 +23,32 @@ public class UsuariosController {
     private ProfessorRepository professorRepository;
 
 @PostMapping("/cadastro")
-    public void cadastrar(@RequestBody Usuario usuario){
-    if(usuario.getUser_role() == UserType.ALUNO){
-        if(professorRepository.findByEmail(usuario.getEmail()) != null){
+    public void cadastrar(@RequestBody UsuarioDTO usuario){
+    if(usuario.user_role() == UserType.ALUNO){
+        if(professorRepository.findByEmail(usuario.email()) != null){
             throw new EmailJaCadastradoException();
         }
-        if(professorRepository.findByCpf(usuario.getCpf()) != null){
+        if(professorRepository.findByCpf(usuario.cpf()) != null){
             throw new CpfJaCadastradoException();
         }
-        if(alunoRepository.findByEmail(usuario.getEmail()) != null){
+        if(alunoRepository.findByEmail(usuario.email()) != null){
             throw new EmailJaCadastradoException();
         }
-        if(alunoRepository.findByCpf(usuario.getCpf()) != null){
+        if(alunoRepository.findByCpf(usuario.cpf()) != null){
             throw new CpfJaCadastradoException();
         }
         alunoRepository.save(new Aluno(usuario));
     }else{
-        if (alunoRepository.findByEmail(usuario.getEmail()) != null){
+        if (alunoRepository.findByEmail(usuario.email()) != null){
             throw new EmailJaCadastradoException();
         }
-        if (alunoRepository.findByCpf(usuario.getCpf()) != null){
+        if (alunoRepository.findByCpf(usuario.cpf()) != null){
             throw new CpfJaCadastradoException();
         }
-        if(professorRepository.findByEmail(usuario.getEmail()) != null){
+        if(professorRepository.findByEmail(usuario.email()) != null){
             throw new EmailJaCadastradoException();
         }
-        if(professorRepository.findByCpf(usuario.getCpf()) != null){
+        if(professorRepository.findByCpf(usuario.cpf()) != null){
             throw new CpfJaCadastradoException();
         }
         professorRepository.save(new Professor(usuario));
@@ -56,21 +56,20 @@ public class UsuariosController {
 }
 
     @PostMapping("/login")
-    public Usuario logar(@RequestBody Usuario usuario) throws Exception{
+    public UsuarioDTO logar(@RequestBody UsuarioDTO usuario) throws Exception{
 
-        Aluno aluno = alunoRepository.findByEmail(usuario.getEmail());
-        Professor professor = professorRepository.findByEmail(usuario.getEmail());
+        Aluno aluno = alunoRepository.findByEmail(usuario.email());
+        Professor professor = professorRepository.findByEmail(usuario.email());
 
-        System.out.println(usuario.getEmail());
+
 
         if(aluno == null && professor == null){
             System.out.println("Não achou usuario");
             throw new EntityNotFoundException("Email ou senha invalidos");
         }else {
             if (aluno != null) {
-                if (usuario.getSenha().equals(aluno.getSenha())) {
-                    usuario = aluno;
-                    System.out.println("Aluno logado");
+                if (usuario.senha().equals(aluno.getSenha())) {
+                    return new UsuarioDTO(aluno);
                 } else {
                     System.out.println("Senha do aluno incorreta");
                     throw new SenhaIncorretaException();
@@ -78,16 +77,15 @@ public class UsuariosController {
                 }
             }
             if (professor != null) {
-                if (usuario.getSenha().equals(professor.getSenha())) {
-                    usuario = professor;
-                    System.out.println("Professor logado");
+                if (usuario.senha().equals(professor.getSenha())) {
+                    return new UsuarioDTO(professor);
                 } else {
                     System.out.println("Senha do professor incorreta");
                     throw new SenhaIncorretaException();
                 }
             }
         }
-        return usuario;
+        return null;
     }
 
 }
