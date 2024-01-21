@@ -8,10 +8,29 @@ const useUsuario = () => {
   const router = useRouter()
 
   const [erro, setErro] = useState(false)
-
-  const { usuario, setUsuario } = useAppContext()
-
+  const { usuario, setUsuario, setValido } = useAppContext()
   const [mensagem, setMensagem] = useState('')
+
+  const { nome, email, senha, cpf, data_nascimento, imagem } = usuario
+
+
+  const validarUsuario = () => {
+    if (nome != '' && email != '' && senha != '' && cpf != '' && data_nascimento != '' && imagem != '') {
+      setValido(true)
+    } else {
+      setValido(false)
+    }
+  }
+
+  const validarLogin = () => {
+    if (email != '' && senha != '') {
+      setValido(true)
+    } else {
+      setValido(false)
+    }
+  }
+
+
 
   const cadastrarUsuario = async () => {
     console.log(usuario)
@@ -46,7 +65,9 @@ const useUsuario = () => {
     setErro,
     mensagem,
     cadastrarUsuario,
-    logarUsuario
+    logarUsuario,
+    validarUsuario,
+    validarLogin
   }
 }
 

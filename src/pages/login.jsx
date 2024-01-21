@@ -4,7 +4,7 @@ import Head from 'next/head'
 import { useEffect, useState } from 'react'
 
 const login = () => {
-  const { usuario } = useAppContext()
+  const { usuario, valido, setValido } = useAppContext()
   const { logarUsuario, mensagem, erro, setErro } = useUsuario()
   const [login, setLogin] = useState({ email: '', senha: '' })
 
@@ -16,11 +16,20 @@ const login = () => {
 
   useEffect(() => {
     setErro(false)
+    setLogin(false)
   }, [])
 
   useEffect(() => {
     console.log(usuario)
   }, [usuario])
+
+  useEffect(() => {
+    if (email != '' && senha != '') {
+      setValido(true)
+    } else {
+      setValido(false)
+    }
+  }, [login])
 
   return (
     <>
@@ -37,9 +46,9 @@ const login = () => {
             <label>Email</label>
             <input type="email" placeholder="hp@email.com" maxLength="100" className="box" id="inpEmail" name="email" value={email} onChange={handleInputChange} required />
             <label>Senha</label>
-            <input type="password" placeholder="Digite sua nova senha" maxLength="50" className="box" id="inpPassword" name="senha" value={senha} onChange={handleInputChange} required />
+            <input type="password" placeholder="Digite sua nova senha" maxLength="50" minLength={6} className="box" id="inpPassword" name="senha" value={senha} onChange={handleInputChange} required />
             {erro && <h2 className="alert alert-danger" role="alert">{mensagem}</h2>}
-            <button type="submit" className="btn btn-dark-blue" id="btnLogin" onClick={() => logarUsuario(email, senha)}>Login</button>
+            <button type="submit" className={`btn btn-dark-blue ${valido ? '' : 'disabled'}`} id="btnLogin" onClick={() => logarUsuario(email, senha)}>Login</button>
           </div>
         </section>
       </main>

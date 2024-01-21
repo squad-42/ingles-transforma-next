@@ -1,16 +1,26 @@
 import { useAppContext } from '@/context/appContext'
 import { useUsuario } from '@/hooks'
 import Head from 'next/head'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 const cadastro = () => {
-  const { usuario, handleUsuarioInputChange } = useAppContext()
+  const { usuario, handleUsuarioInputChange, valido } = useAppContext()
   const { nome, email, senha, data_nascimento, imagem, sexo, cpf, user_role } = usuario
-  const { cadastrarUsuario, mensagem, erro, setErro } = useUsuario()
+  const { cadastrarUsuario, mensagem, erro, setErro, validarUsuario } = useUsuario()
 
   useEffect(() => {
     setErro(false)
   }, [])
+
+  useEffect(() => {
+    validarUsuario()
+  }, [usuario])
+
+  const [confSenha, setConfSenha] = useState('')
+
+  const handleConfSenhaInputChange = e => {
+    setConfSenha(e.target.value)
+  }
 
   return (
     <>
@@ -24,32 +34,32 @@ const cadastro = () => {
         <section className="form-container">
           <div id="form">
             <h3>Cadastrar</h3>
-            <select className="box" id="type" name='user_role' value={user_role} onChange={handleUsuarioInputChange} required>
+            <select className="box" id="type" name='user_role' value={user_role} onChange={handleUsuarioInputChange} >
               <option value="ALUNO">Aluno(a)</option>
               <option value="PROFESSOR">Professor(a)</option>
             </select>
             <label>Nome <span>*</span></label>
-            <input type="text" placeholder="Harry Potter" maxLength="100" className="box" id="name" name='nome' value={nome} onChange={handleUsuarioInputChange} required />
+            <input type="text" placeholder="Harry Potter" maxLength="100" className="box" id="name" name='nome' value={nome} onChange={handleUsuarioInputChange} />
             <label>Email <span>*</span></label>
-            <input type="email" placeholder="hp@email.com" maxLength="100" className="box" id="email" name='email' value={email} onChange={handleUsuarioInputChange} required />
+            <input type="email" placeholder="hp@email.com" maxLength="100" className="box" id="email" name='email' value={email} onChange={handleUsuarioInputChange} />
             <label>CPF <span>*</span></label>
-            <input type="text" placeholder="CPF" maxLength="100" className="box" name='cpf' required value={cpf} onChange={handleUsuarioInputChange} />
+            <input type="text" placeholder="CPF" maxLength="100" className="box" name='cpf' value={cpf} onChange={handleUsuarioInputChange} />
             <label>Data de Nascimento <span>*</span></label>
-            <input type="date" className="box" name="data_nascimento" value={data_nascimento} onChange={handleUsuarioInputChange} required />
+            <input type="date" className="box" name="data_nascimento" value={data_nascimento} onChange={handleUsuarioInputChange} />
             <label>Sexo <span>*</span></label>
-            <select className="box" name="sexo" value={sexo} onChange={handleUsuarioInputChange} required>
+            <select className="box" name="sexo" value={sexo} onChange={handleUsuarioInputChange} >
               <option value="Masculino">Masculino</option>
               <option value="Feminino">Feminino</option>
               <option value="Nao_binario">Não Binário</option>
             </select>
             <label>Imagem <span>*</span></label>
-            <input type="text" placeholder="Link da imagem" maxLength="100" className="box" name='imagem' required value={imagem} onChange={handleUsuarioInputChange} />
+            <input type="text" placeholder="Link da imagem" maxLength="100" className="box" name='imagem' value={imagem} onChange={handleUsuarioInputChange} />
             <label>Senha <span>*</span></label>
-            <input type="password" minLength="6" placeholder="Digite sua nova senha" name='senha' maxLength="50" className="box" id="password" value={senha} onChange={handleUsuarioInputChange} required />
+            <input type="password" minLength="6" placeholder="Digite sua nova senha" name='senha' maxLength="50" className="box" id="password" value={senha} onChange={handleUsuarioInputChange} />
             <label>Confirmar senha <span>*</span></label>
-            <input type="password" minLength="6" placeholder="Confirme sua senha" maxLength="50" className="box" id="confPassword" required />
+            <input type="password" minLength="6" placeholder="Confirme sua senha" maxLength="50" className="box" id="confPassword" value={confSenha} onChange={handleConfSenhaInputChange} />
             {erro && <h2 className="alert alert-danger" role="alert">{mensagem}</h2>}
-            <button type="submit" className="btn btn-dark-blue" id="btnSignUp" onClick={() => cadastrarUsuario()}>Confirmar</button>
+            <button type="submit" className={`btn btn-dark-blue ${valido && senha === confSenha ? '' : 'disabled'}`} id="btnSignUp" onClick={() => cadastrarUsuario()}>Confirmar</button>
           </div>
         </section>
       </main>
