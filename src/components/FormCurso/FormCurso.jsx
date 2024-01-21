@@ -1,14 +1,16 @@
 import { useAppContext } from '@/context/appContext'
 import { useCurso } from '@/hooks'
-import React from 'react'
+import React, { useEffect } from 'react'
 
 const FormCurso = () => {
-  const { curso, handleCursoInputChange, usuario } = useAppContext()
+  const { curso, handleCursoInputChange, usuario, valido } = useAppContext()
   const { id, nome, qtd_aulas, data_publicacao, data_fechamento, imagem } = curso
-  const { criarCurso, editarCurso } = useCurso()
+  const { criarCurso, editarCurso, validarCurso } = useCurso()
 
+  useEffect(() => {
+    validarCurso()
+  }, [curso])
 
-  const valido = true
   return (
     <div className="modal fade" id="teste" tabIndex="-1" aria-hidden="true">
       <div className="modal-dialog">
@@ -60,7 +62,7 @@ const FormCurso = () => {
               <div className="d-flex gap-2 justify-content-end mb-3">
                 <a type="button" className="btn btn-secondary" data-bs-dismiss="modal">Cancelar</a>
                 <a
-                  className={`btn btn-primary ${valido == false ? 'disabled' : ''}`}
+                  className={`btn btn-primary ${valido ? '' : 'disabled'}`}
                   data-bs-dismiss="modal"
                   onClick={() => id == 0 ? criarCurso() : editarCurso(id)}
                 >

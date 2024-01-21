@@ -1,24 +1,28 @@
 import { useAppContext } from '@/context/appContext'
 import axios from 'axios'
-import { useRouter } from 'next/router'
 import { useState } from 'react'
 
 const useCurso = () => {
-  const router = useRouter()
-
   const URL = "http://localhost:8080/cursos"
 
-  const { curso } = useAppContext()
+  const { curso, setValido } = useAppContext()
   const [cursos, setCursos] = useState([])
 
-  /*   const handleCursoInputChange = e => {
-      setCurso({ ...curso, [e.target.name]: e.target.value })
-    } */
+  const { nome, qtd_aulas, data_publicacao, data_fechamento, imagem } = curso
+
+  const validarCurso = () => {
+    if (nome != '' && qtd_aulas != 0 && data_publicacao != '' && data_fechamento != '' && imagem != '') {
+      setValido(true)
+    } else {
+      setValido(false)
+    }
+  }
 
   const listarCursos = async () => {
     axios.get(URL)
       .then(res => setCursos(res.data))
       .catch(err => console.log(err))
+      .finally(() => console.log("Listando..."))
   }
 
   const criarCurso = async () => {
@@ -30,13 +34,9 @@ const useCurso = () => {
 
   const editarCurso = async (id) => {
     axios.put(`${URL}/${id}`, curso)
-      .then(() => {
-        console.log("Registro editado!!!")
-        router.reload()
-
-      })
+      .then(() => console.log("Registro editado!!!"))
       .catch(err => console.log(err))
-
+      .finally(() => listarCursos())
   }
 
   const deletarCurso = async (id) => {
@@ -46,19 +46,13 @@ const useCurso = () => {
       .finally(() => listarCursos())
   }
 
-  /*   const buscarCurso = (prof_id) => {
-      const result = cursos.filter(curso => curso.professor.id === prof_id)
-      console.log(prof_id)
-      console.log(cursos)
-       setCurso(curso) 
-    } */
-
   return {
     cursos,
     criarCurso,
     listarCursos,
     editarCurso,
     deletarCurso,
+    validarCurso
   }
 }
 
