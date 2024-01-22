@@ -6,7 +6,7 @@ export const AppProvider = ({ children }) => {
 
   const [valido, setValido] = useState(false)
 
-  const [usuario, setUsuario] = useState({ id: 0, nome: '', email: '', senha: '', cpf: '', user_role: 'PROFESSOR', data_nascimento: '', sexo: 'Masculino', imagem: '' })
+  const [usuario, setUsuario] = useState({ id: 0, nome: '', email: '', senha: '', cpf: '', user_role: 'ALUNO', data_nascimento: '', sexo: 'Masculino', imagem: '' })
 
   const [curso, setCurso] = useState({ id: 0, nome: "", qtd_aulas: 0, data_publicacao: "", data_fechamento: "", imagem: "", professor: { id: 0 } })
 
