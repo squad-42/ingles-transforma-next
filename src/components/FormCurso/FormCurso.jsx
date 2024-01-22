@@ -15,7 +15,7 @@ const FormCurso = () => {
     <div className="modal fade" id="teste" tabIndex="-1" aria-hidden="true">
       <div className="modal-dialog">
         <div className="modal-content">
-          <div className="modal-header">
+          <div className="modal-header" >
             <h1 className="modal-title" id="exampleModalLabel">
               {id == 0 ? 'Cadastrar' : 'Atualizar'} curso
             </h1>
@@ -31,7 +31,7 @@ const FormCurso = () => {
               </div>
 
               <div className="mb-3">
-                <input type="text" id="id" name="id" className="form-control" value={usuario.id} readOnly />
+                <input type="text" id="id" name="id" className="form-control" value={usuario.id} hidden readOnly />
               </div>
 
               <div className="mb-3">

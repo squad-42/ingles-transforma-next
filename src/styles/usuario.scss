@@ -1,7 +1,23 @@
 @import "./variables";
 
-#professor {
+#usuario {
 
+  .modal-content {
+    background-color: var(--white);
+    color: var(--black);
+
+
+    font-size: $fs-17;
+    text-align: start;
+
+    input {
+      font-size: $fs-17;
+      background-color: var(--light-bg);
+      color: var(--black);
+      border-radius: .5rem;
+      border: none;
+    }
+  }
 
   .details {
     @include box(var(--white));

@@ -1,119 +1,132 @@
-#professor .details {
+#usuario .modal-content {
+  background-color: var(--white);
+  color: var(--black);
+  font-size: 1.7rem;
+  text-align: start;
+}
+#usuario .modal-content input {
+  font-size: 1.7rem;
+  background-color: var(--light-bg);
+  color: var(--black);
+  border-radius: 0.5rem;
+  border: none;
+}
+#usuario .details {
   border-radius: 0.5rem;
   background-color: var(--white);
   padding: 2rem;
 }
-#professor .details a {
+#usuario .details a {
   width: -moz-fit-content;
   width: fit-content;
 }
-#professor .details .user {
+#usuario .details .user {
   text-align: center;
   margin-bottom: 2rem;
 }
-#professor .details .user img {
+#usuario .details .user img {
   height: 10rem;
   width: 10rem;
   border-radius: 50%;
   margin-bottom: 0.5rem;
   margin-bottom: 0.5rem;
 }
-#professor .details .user h3 {
+#usuario .details .user h3 {
   font-size: 2rem;
   margin: 0.5rem 0;
   color: var(--black);
 }
-#professor .details .user p {
+#usuario .details .user p {
   font-size: 1.7rem;
   color: var(--light-color);
   margin-bottom: 0.5rem;
 }
-#professor .details .user a {
+#usuario .details .user a {
   margin-inline: auto;
 }
-#professor .details .box-container {
+#usuario .details .box-container {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 1.5rem;
 }
-#professor .details .box-container .box {
+#usuario .details .box-container .box {
   background-color: var(--light-bg);
   border-radius: 0.5rem;
   padding: 2rem;
   flex: 1 1 30rem;
 }
-#professor .details .box-container .box .flex {
+#usuario .details .box-container .box .flex {
   display: flex;
   align-items: center;
   gap: 1.5rem;
   margin-bottom: 1rem;
 }
-#professor .details .box-container .box .flex i {
+#usuario .details .box-container .box .flex i {
   border-radius: 0.5rem;
   font-size: 2rem;
   text-align: center;
   padding: 5px;
   background-color: var(--black);
 }
-#professor .details .box-container .box .flex i svg {
+#usuario .details .box-container .box .flex i svg {
   color: var(--white);
   margin: 0;
 }
-#professor .details .box-container .box .flex h3 {
+#usuario .details .box-container .box .flex h3 {
   font-size: 2rem;
   color: var(--dark-blue);
   margin-bottom: 0.2rem;
 }
-#professor .details .box-container .box .flex span {
+#usuario .details .box-container .box .flex span {
   font-size: 1.5rem;
   color: var(--light-color);
 }
-#professor #courses .box-container {
+#usuario #courses .box-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(27.5rem, 1fr));
   gap: 1.5rem;
   align-items: flex-start;
   justify-content: center;
 }
-#professor #courses .box-container .box {
+#usuario #courses .box-container .box {
   border-radius: 0.5rem;
   background-color: var(--white);
   padding: 2rem;
   height: 437px;
 }
-#professor #courses .box-container .box .tutor {
+#usuario #courses .box-container .box .tutor {
   margin-bottom: 2.5rem;
   display: flex;
   align-items: center;
   gap: 2rem;
 }
-#professor #courses .box-container .box .tutor img {
+#usuario #courses .box-container .box .tutor img {
   height: 5rem;
   width: 5rem;
   border-radius: 50%;
   margin-bottom: 0.5rem;
 }
-#professor #courses .box-container .box .tutor h3 {
+#usuario #courses .box-container .box .tutor h3 {
   font-size: 1.8rem;
   color: var(--dark-blue);
   margin-bottom: 0.2rem;
 }
-#professor #courses .box-container .box .tutor span {
+#usuario #courses .box-container .box .tutor span {
   font-size: 1.3rem;
   color: var(--black);
 }
-#professor #courses .box-container .box .thumb {
+#usuario #courses .box-container .box .thumb {
   position: relative;
 }
-#professor #courses .box-container .box .thumb img {
+#usuario #courses .box-container .box .thumb img {
   width: 100%;
   border-radius: 0.5rem;
   height: 20rem;
   -o-object-fit: cover;
      object-fit: cover;
 }
-#professor #courses .box-container .box .thumb span {
+#usuario #courses .box-container .box .thumb span {
   position: absolute;
   top: 1rem;
   left: 1rem;
@@ -123,26 +136,26 @@
   color: white;
   font-size: 1.5rem;
 }
-#professor #courses .box-container .box .btn {
+#usuario #courses .box-container .box .btn {
   width: -moz-fit-content;
   width: fit-content;
 }
-#professor #courses .box-container .box .title {
+#usuario #courses .box-container .box .title {
   font-size: 2rem;
   color: var(--black);
   margin-top: 0.5rem;
   padding: 0.5rem 0;
   height: 5.8rem;
 }
-#professor #courses .box-container .box .flex {
+#usuario #courses .box-container .box .flex {
   display: flex;
   gap: 1.5rem;
   margin-bottom: 1rem;
 }
-#professor #courses .box-container .box .flex .btn {
+#usuario #courses .box-container .box .flex .btn {
   width: 100%;
 }
-#professor #courses .btn {
+#usuario #courses .btn {
   width: -moz-fit-content;
   width: fit-content;
 }/*# sourceMappingURL=usuario.css.map */

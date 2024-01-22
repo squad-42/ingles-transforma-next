@@ -16,7 +16,7 @@ const usuario = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main id="professor">
+      <main id="usuario">
         <section className="profile">
           <h1 className="heading">Perfil</h1>
 
