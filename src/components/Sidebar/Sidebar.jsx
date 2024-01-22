@@ -6,12 +6,12 @@ import { LoginModal, UserModal } from '@/components';
 import { useAppContext } from '@/context/appContext';
 
 const Sidebar = () => {
-  const { usuario, setUsuario, darkMode } = useAppContext()
+  const { usuario, setUsuario, darkMode, sidebarIsOpen, closeSidebar, animation } = useAppContext()
 
 
   return (
-    <div className="sidebar">
-      <div className={`offcanvas offcanvas-start ${darkMode ? 'text-bg-dark' : ''}`} tabIndex="-1" id="sidebar">
+    <>
+      <div className={`offcanvas offcanvas-start ${animation} ${darkMode ? 'text-bg-dark' : ''} ${sidebarIsOpen ? 'show' : ''}`} tabIndex="-1" id="sidebar">
         <div className="profile text-center" id="profile-sidebar">
           {usuario.id == 0 ? <LoginModal /> : <UserModal usuario={usuario} location={'sidebar'} />}
         </div>
@@ -20,6 +20,7 @@ const Sidebar = () => {
             <Link
               key={i}
               href={link}
+              onClick={closeSidebar}
             >
               <i>{icone()}</i>
               <span>{texto}</span>
@@ -48,7 +49,8 @@ const Sidebar = () => {
 
         </nav>
       </div >
-    </div>
+      {sidebarIsOpen && <div className={`offcanvas-backdrop fade show`} onClick={closeSidebar}></div>}
+    </>
   )
 }
 

@@ -14,6 +14,21 @@ export const AppProvider = ({ children }) => {
 
   const [darkMode, setDarkMode] = useState(false)
 
+  const [sidebarIsOpen, setSidebarIsOpen] = useState(false)
+  const [animation, setAnimation] = useState('')
+
+  const openSidebar = () => {
+    setAnimation('showing')
+    setSidebarIsOpen(true)
+
+  }
+
+  const closeSidebar = () => {
+    setAnimation('hiding')
+    setSidebarIsOpen(false)
+
+  }
+
 
   const handleUsuarioInputChange = e => {
     setUsuario({ ...usuario, [e.target.name]: e.target.value })
@@ -26,6 +41,10 @@ export const AppProvider = ({ children }) => {
 
   return (
     <AppContext.Provider value={{
+      animation,
+      sidebarIsOpen,
+      openSidebar,
+      closeSidebar,
       valido,
       setValido,
       darkMode,

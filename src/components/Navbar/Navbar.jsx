@@ -7,13 +7,9 @@ import { LoginModal, UserModal } from '@/components';
 import { useAppContext } from '@/context/appContext';
 
 const Navbar = () => {
-  const { usuario } = useAppContext()
+  const { usuario, setSidebarIsOpen, closeSidebar, openSidebar } = useAppContext()
   const [isOpen, setIsOpen] = useState(false)
   const { darkMode, setDarkMode } = useAppContext()
-
-
-
-
 
   return (
     <header>
@@ -23,6 +19,7 @@ const Navbar = () => {
             src={` ${darkMode ? 'icons/logo-texto-branco.svg' : 'icons/logo-texto.svg'}`}
             width={80}
             height={54}
+            alt='Logo'
           />
         </Link>
 
@@ -34,7 +31,7 @@ const Navbar = () => {
         </form>
 
         <div className="icons">
-          <div id="menu-btn" data-bs-toggle="offcanvas" data-bs-target="#sidebar">
+          <div id="menu-btn" /* data-bs-toggle="offcanvas" data-bs-target="#sidebar" */ onClick={openSidebar}>
             <FaBars />
           </div>
           <div id="search-btn">
