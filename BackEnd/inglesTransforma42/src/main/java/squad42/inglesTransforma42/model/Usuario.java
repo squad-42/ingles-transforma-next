@@ -3,11 +3,21 @@ package squad42.inglesTransforma42.model;
 
 import java.util.Date;
 
-import jakarta.persistence.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
-import squad42.inglesTransforma42.enums.UserType;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.MappedSuperclass;
+import jakarta.persistence.Transient;
 import squad42.inglesTransforma42.DTOs.UsuarioDTO;
+import squad42.inglesTransforma42.enums.UserType;
 
 @MappedSuperclass
 public class Usuario {
@@ -33,12 +43,17 @@ public class Usuario {
 	@Column(nullable=false)
 	private String sexo;
 
+
+ 
+
 	@Column(nullable = false)
 	private String imagem;
 
 	public Usuario() {
 		super();
 	}
+	
+		
 
 	public Usuario(int id, String nome, String email, String senha, String cpf, UserType user_role, String sexo,
 			Date data_nascimento, String imagem) {
@@ -135,4 +150,6 @@ public class Usuario {
 	public void setImagem(String imagem) {
 		this.imagem = imagem;
 	}
+	
+	
 }
