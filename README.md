@@ -26,6 +26,17 @@ O Inglês Transforma é uma plataforma de ensino de inglês voltada para pessoas
 | <img src="https://github.com/squad-42/ingles-transforma-next/blob/main/public/devs-squad-42/david-c.png" height="100" width="100"> | <img src="https://github.com/squad-42/ingles-transforma-next/blob/main/public/devs-squad-42/david-h.png" height="100" width="100"> | <img src="https://github.com/squad-42/ingles-transforma-next/blob/main/public/devs-squad-42/erika-a.jpg" height="100" width="100"> | <img src="https://github.com/squad-42/ingles-transforma-next/blob/main/public/devs-squad-42/erika-b.png" height="100" width="100"> |
 
 
+<div align="center">
+
+
+
+|                             :computer:Desktop                             |                             :iphone: Mobile                              |
+| :-----------------------------------------------------------------------: | :----------------------------------------------------------------------: |
+| <kbd>  <img alt="project" src="src/assets/Desktop.PNG" width="100%"></kbd> | <kbd><img alt="project" src="src/assets/Mobile.PNG" width="100%"></kbd> |
+</div>
+  
+
+
 
 ## Instalação e configuração:
 
