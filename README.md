@@ -23,7 +23,8 @@ O Inglês Transforma é uma plataforma de ensino de inglês voltada para pessoas
 
 | David Coelho | David Henrique | Erika Alves | Erika Bedin |
 | ------------ | -------------- | ----------- | ----------- |
-| ![David Coelho](https://github.com/squad-42/ingles-transforma-next/blob/main/public/devs-squad-42/david-c.png) | ![David Henrique](https://github.com/squad-42/ingles-transforma-next/blob/main/public/devs-squad-42/david-h.png) | ![Erika Alves](https://github.com/squad-42/ingles-transforma-next/blob/main/public/devs-squad-42/erika-a.jpg) | ![Erika Bedin](https://github.com/squad-42/ingles-transforma-next/blob/main/public/devs-squad-42/erika-b.png) |
+| <img src="https://github.com/squad-42/ingles-transforma-next/blob/main/public/devs-squad-42/david-c.png" height="100" width="100"> | <img src="https://github.com/squad-42/ingles-transforma-next/blob/main/public/devs-squad-42/david-h.png" height="100" width="100"> | <img src="https://github.com/squad-42/ingles-transforma-next/blob/main/public/devs-squad-42/erika-a.jpg" height="100" width="100"> | <img src="https://github.com/squad-42/ingles-transforma-next/blob/main/public/devs-squad-42/erika-b.png" height="100" width="100"> |
+
 
 
 ## Instalação e configuração:
