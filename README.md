@@ -1,4 +1,5 @@
 # Inglês Transforma
+![inglês-tranforma-demo](https://github.com/squad-42/ingles-transforma-next/blob/main/public/devs-squad-42/video-demo-ingl%C3%AAs-transforma.gif)
 
 ## Menu
 1. [Descrição](#descrição)
@@ -17,6 +18,13 @@ O Inglês Transforma é uma plataforma de ensino de inglês voltada para pessoas
 - **Back-end com Java Spring Boot:** Utiliza Spring Boot para fornecer uma estrutura robusta para o back-end da aplicação.
 - **CRUD com API:** Implementa operações CRUD (Create, Read, Update, Delete) utilizando uma API REST para gerenciar os dados da plataforma.
 - **Segurança da Senha com Spring Security:** Criptografa as senhas dos usuários utilizando o Spring Security para garantir a segurança dos dados.
+
+## Desenvolvedores
+
+| David Coelho | David Henrique | Erika Alves | Erika Bedin |
+| ------------ | -------------- | ----------- | ----------- |
+| ![David Coelho](https://github.com/squad-42/ingles-transforma-next/blob/main/public/devs-squad-42/david-c.png) | ![David Henrique](https://github.com/squad-42/ingles-transforma-next/blob/main/public/devs-squad-42/david-h.png) | ![Erika Alves](https://github.com/squad-42/ingles-transforma-next/blob/main/public/devs-squad-42/erika-a.jpg) | ![Erika Bedin](https://github.com/squad-42/ingles-transforma-next/blob/main/public/devs-squad-42/erika-b.png) |
+
 
 ## Instalação e configuração:
 
