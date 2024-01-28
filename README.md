@@ -1,40 +1,52 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Inglês Transforma
 
-## Getting Started
+## Menu
+1. [Descrição](#descrição)
+2. [Funcionalidades Principais](#funcionalidades-principais)
+3. [Desenvolvedores](#desenvolvedores)
+4. [Instalação e Configuração](#instalação-e-configuração)
+5. [Licença](#licença)
 
-First, run the development server:
+## Descrição
+O Inglês Transforma é uma plataforma de ensino de inglês voltada para pessoas de baixa renda. Este repositório contém a refatoração do código da plataforma, utilizando Next.js com Bootstrap e Sass para o front-end, e Java Spring Boot com uma API para realizar operações CRUD no back-end, incluindo a criptografia de senha com Spring Security.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Funcionalidades Principais
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Refatoração com Next.js:** Utiliza Next.js para aprimorar a eficiência e a manutenibilidade do código do front-end.
+- **Estilização com Bootstrap e Sass:** Implementa o design da plataforma utilizando Bootstrap e Sass para uma experiência visual agradável e responsiva.
+- **Back-end com Java Spring Boot:** Utiliza Spring Boot para fornecer uma estrutura robusta para o back-end da aplicação.
+- **CRUD com API:** Implementa operações CRUD (Create, Read, Update, Delete) utilizando uma API REST para gerenciar os dados da plataforma.
+- **Segurança da Senha com Spring Security:** Criptografa as senhas dos usuários utilizando o Spring Security para garantir a segurança dos dados.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Instalação e configuração:
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+#### No GitHub:
+1. Clone este repositório:
+git clone https://github.com/squad-42/Ingles-Transforma.git
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+#### No VSCode:
+1. Abra o arquivo no VSCode.
+2. No terminal, execute o seguinte comando para instalar as dependências:
+    npm i
+3. Em seguida, execute o comando para iniciar o servidor de desenvolvimento:
+    npm run dev
+4. Acesse a aplicação através do endereço recomendado (normalmente é: [http://localhost:3000/](http://localhost:3000/)).
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+#### No Spring Boot
+1. No Spring Tool Suite ou Eclipse:
+- Clique em **File** > **Import** > **Maven** > **Existing Maven Projects**.
+- Selecione o diretório do projeto e clique em **Finish**.
 
-## Learn More
+2. Em `src/main/resources/application.properties`, substitua `<nome_do_usuario>` e `<senha_do_banco>` pelo nome de usuário e senha do seu banco de dados MySQL:
+```properties
+spring.datasource.username=<nome_do_usuario>
+spring.datasource.password=<senha_do_banco>
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+
+
