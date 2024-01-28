@@ -6,7 +6,8 @@
 2. [Funcionalidades Principais](#funcionalidades-principais)
 3. [Desenvolvedores](#desenvolvedores)
 4. [Instalação e Configuração](#instalação-e-configuração)
-5. [Licença](#licença)
+5. [Versões](#Versões)
+6. [Licença](#licença)
 
 ## Descrição
 O Inglês Transforma é uma plataforma de ensino de inglês voltada para pessoas de baixa renda. Este repositório contém a refatoração do código da plataforma, utilizando Next.js com Bootstrap e Sass para o front-end, e Java Spring Boot com uma API para realizar operações CRUD no back-end, incluindo a criptografia de senha com Spring Security.
@@ -25,7 +26,7 @@ O Inglês Transforma é uma plataforma de ensino de inglês voltada para pessoas
 | ------------ | -------------- | ----------- | ----------- |
 | <img src="https://github.com/squad-42/ingles-transforma-next/blob/main/public/devs-squad-42/david-c.png" height="100" width="100"> | <img src="https://github.com/squad-42/ingles-transforma-next/blob/main/public/devs-squad-42/david-h.png" height="100" width="100"> | <img src="https://github.com/squad-42/ingles-transforma-next/blob/main/public/devs-squad-42/erika-a.jpg" height="100" width="100"> | <img src="https://github.com/squad-42/ingles-transforma-next/blob/main/public/devs-squad-42/erika-b.png" height="100" width="100"> |
 
-
+## Versões
 <div align="center">
 
 
