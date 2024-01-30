@@ -1,6 +1,7 @@
 import { useAppContext } from '@/context/appContext'
 import { useCurso } from '@/hooks'
 import React from 'react'
+import Link from 'next/link'
 
 const CardCursoCRUD = ({ curso }) => {
   const { setCurso } = useAppContext()
@@ -27,7 +28,8 @@ const CardCursoCRUD = ({ curso }) => {
           onClick={() => deletarCurso(id)}
         >Deletar</button>
       </div>
-      <a href="../aulas/aulas.html" className="btn btn-dark-blue object-fit-contain">Ver playlist</a>
+      <Link href={`/aulas`} className="btn btn-dark-blue" onClick={() => setCurso(curso)}
+      >Ver playslist</Link>
     </div>
   )
 }

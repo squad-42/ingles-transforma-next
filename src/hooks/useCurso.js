@@ -5,7 +5,7 @@ import { useState } from 'react'
 const useCurso = () => {
   const URL = "http://localhost:8080/cursos"
 
-  const { curso, setValido, setCursos } = useAppContext()
+  const { curso, setValido, setCursos, setQtdCursos } = useAppContext()
   /*  const [cursos, setCursos] = useState([]) */
 
   const { nome, qtd_aulas, data_publicacao, data_fechamento, imagem } = curso
@@ -27,7 +27,10 @@ const useCurso = () => {
 
   const criarCurso = async () => {
     axios.post(URL, curso)
-      .then(console.log("Cadastro realizado!!!"))
+      .then(() => {
+        console.log("Cadastro realizado!!!")
+        setQtdCursos(prev => prev + 1)
+      })
       .catch(err => console.log("err"))
       .finally(() => listarCursos())
   }
@@ -41,7 +44,10 @@ const useCurso = () => {
 
   const deletarCurso = async (id) => {
     axios.delete(`${URL}/${id}`)
-      .then(console.log("Curso deletado!!!"))
+      .then(() => {
+        console.log("Curso deletado!!!")
+        setQtdCursos(prev => prev - 1)
+      })
       .catch(err => console.log(err))
       .finally(() => listarCursos())
   }

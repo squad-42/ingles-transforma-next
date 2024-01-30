@@ -17,6 +17,8 @@ export const AppProvider = ({ children }) => {
   const [sidebarIsOpen, setSidebarIsOpen] = useState(false)
   const [animation, setAnimation] = useState('')
 
+  const [qtdCursos, setQtdCursos] = useState(0)
+
   const openSidebar = () => {
     setAnimation('showing')
     setSidebarIsOpen(true)
@@ -56,7 +58,9 @@ export const AppProvider = ({ children }) => {
       cursos,
       setCursos,
       handleCursoInputChange,
-      handleUsuarioInputChange
+      handleUsuarioInputChange,
+      qtdCursos,
+      setQtdCursos,
     }}>
       {children}
     </AppContext.Provider>

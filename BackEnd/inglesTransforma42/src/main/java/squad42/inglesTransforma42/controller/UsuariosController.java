@@ -21,7 +21,7 @@
 	
 	@RestController
 	@RequestMapping("/usuario")
-	@CrossOrigin(origins = "http://localhost:3000")
+	@CrossOrigin(origins = "*")
 	public class UsuariosController {
 	@Autowired
 	    private AlunoRepository alunoRepository;

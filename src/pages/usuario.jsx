@@ -6,7 +6,7 @@ import { FaHeart, FaBookmark, FaComments } from "react-icons/fa";
 
 
 const usuario = () => {
-  const { usuario } = useAppContext()
+  const { usuario, qtdCursos } = useAppContext()
   const { nome, user_role, imagem } = usuario
   return (
     <>
@@ -32,9 +32,9 @@ const usuario = () => {
               <a href="../update/update.html" className="btn btn-dark-blue">Editar perfil</a>
             </div>
             <div className="box-container">
-              <CardStatus texto={"Playlist salvas"} numero={3} icon={FaBookmark} />
-              <CardStatus texto={"Aulas curtidas"} numero={5} icon={FaHeart} />
-              <CardStatus texto={"Comentarios"} numero={10} icon={FaComments} />
+              <CardStatus texto={"Playlist criadas"} numero={qtdCursos} icon={FaBookmark} />
+              <CardStatus texto={"Aulas curtidas"} numero={0} icon={FaHeart} />
+              <CardStatus texto={"Comentarios"} numero={0} icon={FaComments} />
             </div>
           </div>
 

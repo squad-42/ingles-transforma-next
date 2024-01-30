@@ -9,6 +9,7 @@ import CardProfessor from "./CardProfessor/CardProfessor";
 import CardSobre from "./CardSobre/CardSobre";
 import CardStatus from "./CardStatus/CardStatus";
 import CardCursoCRUD from "./CardCursoCRUD/CardCursoCRUD";
+import CardAula from "./CardAula/CardAula";
 
 import Aluno from "./Usuario/Aluno";
 import Professor from "./Usuario/Professor";
@@ -28,6 +29,7 @@ export {
   CardSobre,
   CardStatus,
   CardCursoCRUD,
+  CardAula,
   Aluno,
   Professor,
   LoginModal,

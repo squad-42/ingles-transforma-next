@@ -29,7 +29,6 @@ const Professor = () => {
         {cursos.map((curso) => (
           curso.professor.id === usuario.id && <CardCursoCRUD curso={curso} key={curso.id} />
         ))}
-
       </>
     </>
   )

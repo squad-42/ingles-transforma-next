@@ -21,7 +21,7 @@ const CardProfessor = ({ professor }) => {
 
 
   return (
-    <div className="box">
+    <div className="box" style={{ maxWidth: 376 }}>
       <div className="tutor">
         <img src={imagem} alt="" />
         <div className="info">
